@@ -1,0 +1,15 @@
+﻿{
+    "name": "EditModeTest",
+    "optionalUnityReferences": [
+        "TestAssemblies"
+    ],
+    "references": [
+        "KarteTrackerAssembly"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "precompiledReferences": [
+        "Newtonsoft.Json.dll"
+    ]
+}

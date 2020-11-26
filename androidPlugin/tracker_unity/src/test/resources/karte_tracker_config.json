@@ -1,0 +1,9 @@
+{
+  "appKey": "app_key",
+  "karteConfig": {
+    "baseUrl": "http://example.com/v0/native",
+    "enabledTrackingAaid": true,
+    "isOptOut": true,
+    "isDryRun": true
+  }
+}

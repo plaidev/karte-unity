@@ -1,0 +1,17 @@
+<dependencies>
+  <androidPackages>
+    <repositories>
+      <repository>https://jcenter.bintray.com</repository>
+    </repositories>
+    <androidPackage spec="io.karte.android:core:2.6.+"> </androidPackage>
+    <androidPackage spec="io.karte.android:inappmessaging:2.7.+"> </androidPackage>
+    <androidPackage spec="io.karte.android:notifications:2.4.+"> </androidPackage>
+    <androidPackage spec="io.karte.android:variables:2.2.+"> </androidPackage>
+  </androidPackages>
+  <iosPods>
+    <iosPod name="KarteCore" version="~> 2.11.0"/>
+    <iosPod name="KarteInAppMessaging" version="~> 2.8.0"/>
+    <iosPod name="KarteRemoteNotification" version="~> 2.4.0"/>
+    <iosPod name="KarteVariables" version="~> 2.1.0"/>
+  </iosPods>
+</dependencies>

@@ -1,0 +1,8 @@
+<!-- JsonConvert.SerializeObjectをiOSで動かした時クラッシュする不具合を回避する設定
+https://issuetracker.unity3d.com/issues/il2cpp-notsupportedexceptions-exception-is-thrown-in-build-with-newtonsoft-dot-json-plugin
+ -->
+<linker> 
+<assembly fullname="System.Core"> 
+<type fullname="System.Linq.Expressions.Interpreter.LightLambda" preserve="all" /> 
+</assembly> 
+</linker>
