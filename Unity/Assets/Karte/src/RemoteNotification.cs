@@ -68,7 +68,7 @@ namespace Io.Karte {
 #elif UNITY_ANDROID && !UNITY_EDITOR
             string attributesStr = userInfo["krt_attributes"];
             JObject json = JObject.Parse (attributesStr);
-            string link = json.Value<string> ("link");
+            string link = json.Value<string> ("url");
             return link;
 #else
             return "";
@@ -92,7 +92,7 @@ namespace Io.Karte {
                 json.Value<string> ("body"),
                 json.Value<bool> ("sound"),
                 json.Value<string> ("channel"),
-                json.Value<string> ("link"),
+                json.Value<string> ("url"),
                 json.Value<string> ("type"),
                 json.Value<string> ("fileUrl")
             );
