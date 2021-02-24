@@ -4,6 +4,7 @@ import android.app.Application;
 
 import io.karte.android.KarteApp;
 import io.karte.android.core.logger.Logger;
+import io.karte.android.inappmessaging.InAppMessaging;
 
 public class UnityApplication extends Application {
     private static final String LOG_TAG = "Karte.UnityApplication";
@@ -18,5 +19,7 @@ public class UnityApplication extends Application {
             return;
         }
         KarteApp.setup(this, config.getAppKey(), config.getKarteConfig());
+
+        InAppMessaging.setDelegate(UnityInAppMessagingDelegateHook.getInstance());
     }
 }

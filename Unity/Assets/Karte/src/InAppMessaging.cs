@@ -18,7 +18,87 @@ namespace Io.Karte {
         static extern void KRTInAppMessaging_suppress ();
         [DllImport ("__Internal")]
         static extern void KRTInAppMessaging_unsuppress ();
+        [DllImport ("__Internal")]
+        static extern void KRTInAppMessaging_enableOpenUrlHandler (string callbackTargetName);
+        [DllImport ("__Internal")]
+        static extern void KRTInAppMessaging_disableOpenUrlHandler ();
+        [DllImport ("__Internal")]
+        static extern void KRTInAppMessaging_enableOpenUrlWithSceneHandler(string callbackTargetName);
+        [DllImport ("__Internal")]
+        static extern void KRTInAppMessaging_disableOpenUrlWithSceneHandler();
 #endif
+
+
+        public delegate void HandleOpenUrl(string url);
+        public delegate void HandleOpenUrlWithScene(string url, string sceneIdentifier);
+
+        private static HandleOpenUrl openUrlHandlers;
+        public static HandleOpenUrl OnOpenUrl {
+            get { return openUrlHandlers; }
+            set {
+                openUrlHandlers = value;
+                if(openUrlHandlers == null || openUrlHandlers.GetInvocationList().GetLength(0) == 0) {
+                    disableOpenUrlHandler();
+                } else {
+                    enableOpenUrlHandler();
+                }
+            }
+        }
+
+        private static HandleOpenUrlWithScene openUrlWithSceneHandlers;
+        public static HandleOpenUrlWithScene OnOpenUrlWithScene {
+            get { return openUrlWithSceneHandlers; }
+            set {
+                openUrlWithSceneHandlers = value;
+                if(openUrlWithSceneHandlers == null || openUrlWithSceneHandlers.GetInvocationList().GetLength(0) == 0) {
+                    disableOpenUrlWithSceneHandler();
+                } else {
+                    enableOpenUrlWithSceneHandler();
+                }
+            }
+        }
+
+        private static void enableOpenUrlHandler() {
+#if UNITY_IOS && !UNITY_EDITOR
+            KRTInAppMessaging_enableOpenUrlHandler (CallbackReceiver.CallbackTargetName);
+#elif UNITY_ANDROID && !UNITY_EDITOR
+            AndroidJavaClass manager = new AndroidJavaClass ("io.karte.unity.UnityInAppMessaging");
+            manager.CallStatic ("enableOpenUrlHandler", new object[] { CallbackReceiver.CallbackTargetName });
+#endif
+        }
+
+        private static void disableOpenUrlHandler() {
+#if UNITY_IOS && !UNITY_EDITOR
+            KRTInAppMessaging_disableOpenUrlHandler ();
+#elif UNITY_ANDROID && !UNITY_EDITOR
+            AndroidJavaClass manager = new AndroidJavaClass ("io.karte.unity.UnityInAppMessaging");
+            manager.CallStatic ("disableOpenUrlHandler");
+#endif
+        }
+
+        private static void enableOpenUrlWithSceneHandler() {
+#if UNITY_IOS && !UNITY_EDITOR
+            KRTInAppMessaging_enableOpenUrlWithSceneHandler (CallbackReceiver.CallbackTargetName);
+#endif
+        }
+
+        private static void disableOpenUrlWithSceneHandler() {
+#if UNITY_IOS && !UNITY_EDITOR
+            KRTInAppMessaging_disableOpenUrlWithSceneHandler ();
+#endif
+        }
+
+        public static void InvokeOpenUrlHandler(string url) {
+            if(openUrlHandlers != null) {
+                openUrlHandlers(url);
+            }
+        }
+
+        public static void InvokeOpenUrlWithSceneHandler(string url, string sceneIdentifier) {
+            if(openUrlWithSceneHandlers != null) {
+                openUrlWithSceneHandlers(url, sceneIdentifier);
+            }
+        }
 
         /// <summary>
         /// 表示中のアプリ内メッセージをリセットします。
@@ -79,5 +159,6 @@ namespace Io.Karte {
             manager.CallStatic ("unsuppress");
 #endif
         }
+
     }
 }

@@ -7,7 +7,9 @@
 //
 
 #import "KarteSetupUtil.h"
+#import "KarteInAppMessagingDelegateHook.h"
 @import KarteCore;
+@import KarteInAppMessaging;
 
 @implementation KarteSetupUtil
 + (void)setupWithConfigFile
@@ -19,6 +21,8 @@
     NSString *appKey = (NSString *)[configDict objectForKey: @"appKey"];
     KRTConfiguration *config = [self configWithDictionary:configDict];
     [KRTApp setupWithAppKey:appKey configuration:config];
+    
+    [KRTInAppMessaging shared].delegate = [KarteInAppMessagingDelegateHook shared];
 }
 
 + (KRTConfiguration *) configWithDictionary: (NSDictionary *)dict {

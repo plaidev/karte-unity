@@ -37,7 +37,6 @@ namespace Io.Karte {
         static extern void KRTVariables_trackClickWithValues (string serializedVariables, string serializedValues);
 #endif
 
-        internal static GameObject CallbackReceiverObject;
 
         /// <summary>
         /// <para>設定値を取得します。</para>
@@ -66,15 +65,13 @@ namespace Io.Karte {
         /// </summary>
         /// <param name="callback">取得完了通知クロージャ</param>
         public static void FetchWithCompletion (Action<bool> callback) {
-            SetupCallbackReceiver ();
-
-            string callbackId = generateUniqueCallbackID ();
-            CallbackReceiver.instance.AddVariablesCallback (callbackId, callback);
+            string callbackId = CallbackReceiver.GenerateUniqueCallbackID ();
+            CallbackReceiver.Instance.AddVariablesCallback (callbackId, callback);
 #if UNITY_IOS && !UNITY_EDITOR
-            KRTVariables_fetchWithCompletionBlock (CallbackReceiverObject.name, callbackId);
+            KRTVariables_fetchWithCompletionBlock (CallbackReceiver.CallbackTargetName, callbackId);
 #elif UNITY_ANDROID && !UNITY_EDITOR
             AndroidJavaClass variables = new AndroidJavaClass ("io.karte.unity.UnityVariables");
-            variables.CallStatic ("fetchWithCompletionBlock", new object[] { CallbackReceiverObject.name, callbackId });
+            variables.CallStatic ("fetchWithCompletionBlock", new object[] { CallbackReceiver.CallbackTargetName, callbackId });
 #endif
         }
 
@@ -154,21 +151,6 @@ namespace Io.Karte {
 #endif
         }
 
-        private static void SetupCallbackReceiver () {
-            if (CallbackReceiverObject) {
-                return;
-            }
-            CallbackReceiverObject = new GameObject ("KarteCallbackReceiverObject");
-            CallbackReceiverObject.AddComponent<CallbackReceiver> ();
-        }
 
-        private static string generateUniqueCallbackID () {
-            StringBuilder sb = new StringBuilder ("", 16);
-            const string glyphs = "abcdefghijklmnopqrstuvwxyz0123456789";
-            for (int i = 0; i < 16; i++) {
-                sb.Append (glyphs[UnityEngine.Random.Range (0, glyphs.Length)]);
-            }
-            return sb.ToString ();
-        }
     }
 }

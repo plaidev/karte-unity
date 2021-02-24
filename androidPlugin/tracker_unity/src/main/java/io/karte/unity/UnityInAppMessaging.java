@@ -18,4 +18,12 @@ class UnityInAppMessaging {
     private static void unsuppress() {
         InAppMessaging.unsuppress();
     }
+
+    private static void enableOpenUrlHandler(String url) {
+        UnityInAppMessagingDelegateHook.getInstance().enableOpenUrlHandler(url);
+    }
+
+    private static void disableOpenUrlHandler() {
+        UnityInAppMessagingDelegateHook.getInstance().disableOpenUrlHandler();
+    }
 }
