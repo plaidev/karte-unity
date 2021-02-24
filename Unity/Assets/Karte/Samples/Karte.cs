@@ -11,7 +11,18 @@ namespace Sample {
         void Start () {
             //SetupFirebase ();
             ShowAppKeyAndVisitorId ();
+
+            InAppMessaging.OnOpenUrl += handleOpenUrl;
         }
+
+        void handleOpenUrl(string url) {
+            Debug.Log("handleOpenUrl: url=" + url);
+        }
+
+        void handleOpenUrlWithScene(string url, string sceneIdentifier) {
+            Debug.Log("handleOpenUrlWithScene: url=" + url + ", sceneIdentifier=" + sceneIdentifier);
+        }
+
 
         //プッシュ通知をテストする場合はコメントアウトを外してSetupFirebseを呼んでください。
         // private void SetupFirebase () {

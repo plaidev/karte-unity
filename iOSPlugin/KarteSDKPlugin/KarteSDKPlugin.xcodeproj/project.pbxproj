@@ -34,6 +34,7 @@
 		7357F5EE22F2AD7D00999909 /* KarteAppDelegateNotificationHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 7357F5ED22F2AD7D00999909 /* KarteAppDelegateNotificationHandler.m */; };
 		738C4EC522F2C81300DCEA30 /* KarteSetupUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 738C4EC422F2C81300DCEA30 /* KarteSetupUtil.m */; };
 		7399FD3224C042CA000B98D9 /* KarteApp.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7399FD3124C042CA000B98D9 /* KarteApp.mm */; };
+		739CEDFA25DE6319005D4396 /* KarteInAppMessagingDelegateHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 739CEDF925DE6319005D4396 /* KarteInAppMessagingDelegateHook.m */; };
 		73BAA9442509FF3300D83B9E /* KartePlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BAA9432509FF3300D83B9E /* KartePlugin.swift */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +71,8 @@
 		738C4EC322F2C81300DCEA30 /* KarteSetupUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KarteSetupUtil.h; sourceTree = "<group>"; };
 		738C4EC422F2C81300DCEA30 /* KarteSetupUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KarteSetupUtil.m; sourceTree = "<group>"; };
 		7399FD3124C042CA000B98D9 /* KarteApp.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = KarteApp.mm; sourceTree = "<group>"; };
+		739CEDF825DE6319005D4396 /* KarteInAppMessagingDelegateHook.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KarteInAppMessagingDelegateHook.h; sourceTree = "<group>"; };
+		739CEDF925DE6319005D4396 /* KarteInAppMessagingDelegateHook.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KarteInAppMessagingDelegateHook.m; sourceTree = "<group>"; };
 		73BAA9432509FF3300D83B9E /* KartePlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KartePlugin.swift; sourceTree = "<group>"; };
 		73DBC8BA24EED9E80065CEEB /* KarteSDKPlugin-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KarteSDKPlugin-Bridging-Header.h"; sourceTree = "<group>"; };
 		7CDDD1AF30F6CF3282F3CB43 /* Pods-KarteSDKPlugin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KarteSDKPlugin.debug.xcconfig"; path = "Target Support Files/Pods-KarteSDKPlugin/Pods-KarteSDKPlugin.debug.xcconfig"; sourceTree = "<group>"; };
@@ -130,6 +133,8 @@
 				7312550022EAFE9C005EFB22 /* KarteTracker.mm */,
 				7312550522EAFE9D005EFB22 /* KarteUserSync.mm */,
 				7312550722EAFE9D005EFB22 /* KarteVariables.mm */,
+				739CEDF825DE6319005D4396 /* KarteInAppMessagingDelegateHook.h */,
+				739CEDF925DE6319005D4396 /* KarteInAppMessagingDelegateHook.m */,
 				7357F5EC22F2AD7D00999909 /* KarteAppDelegateNotificationHandler.h */,
 				7357F5ED22F2AD7D00999909 /* KarteAppDelegateNotificationHandler.m */,
 				738C4EC322F2C81300DCEA30 /* KarteSetupUtil.h */,
@@ -260,6 +265,7 @@
 				7357F5EE22F2AD7D00999909 /* KarteAppDelegateNotificationHandler.m in Sources */,
 				7312550F22EAFE9D005EFB22 /* KarteVariables.mm in Sources */,
 				7312550C22EAFE9D005EFB22 /* Util.m in Sources */,
+				739CEDFA25DE6319005D4396 /* KarteInAppMessagingDelegateHook.m in Sources */,
 				738C4EC522F2C81300DCEA30 /* KarteSetupUtil.m in Sources */,
 				7312550A22EAFE9D005EFB22 /* KarteInAppMessaging.mm in Sources */,
 				733C0C162541771E0014AFAE /* KartePluginLoader.m in Sources */,
