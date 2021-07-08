@@ -24,10 +24,10 @@ android {
 
 dependencies {
     compileOnly fileTree(dir: 'libs', include: ['*.jar','*.aar'])
-    implementation 'io.karte.android:core:2.4.0'
-    implementation 'io.karte.android:inappmessaging:2.5.0'
-    implementation 'io.karte.android:notifications:2.3.0'
-    implementation 'io.karte.android:variables:2.1.0'
+    implementation 'io.karte.android:core:+'
+    implementation 'io.karte.android:inappmessaging:+'
+    implementation 'io.karte.android:notifications:+'
+    implementation 'io.karte.android:variables:+'
     implementation 'androidx.appcompat:appcompat:1.0.2'
     implementation 'com.google.firebase:firebase-messaging:+'
     testImplementation 'junit:junit:4.12'
