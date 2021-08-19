@@ -67,6 +67,7 @@ namespace Io.Karte {
             }
             attachedGameObject = new GameObject (CallbackTargetName);
             attachedGameObject.AddComponent<CallbackReceiver> ();
+            DontDestroyOnLoad(attachedGameObject);
         }
 
         public static string GenerateUniqueCallbackID () {

@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Karte/Samples/sampleScene.unity
     guid: 2f1756af4ba184c169f895ef2174cb81
+  - enabled: 1
+    path: Assets/Karte/Samples/sampleScene2.unity
+    guid: 1b5dcc9ca07b74000895d595caaf1b35
   m_configObjects: {}

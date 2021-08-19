@@ -3,6 +3,7 @@ using Io.Karte;
 using Newtonsoft.Json.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 namespace Sample {
     public class Karte : MonoBehaviour {
@@ -11,7 +12,6 @@ namespace Sample {
         void Start () {
             //SetupFirebase ();
             ShowAppKeyAndVisitorId ();
-
             InAppMessaging.OnOpenUrl += handleOpenUrl;
         }
 
@@ -183,6 +183,10 @@ namespace Sample {
 
         public void onUnsupressClick () {
             InAppMessaging.unsuppress ();
+        }
+
+        public void OnMoveToScene2Click() {
+            SceneManager.LoadScene("sampleScene2");
         }
 
         private Text GetText (string objectName) {
