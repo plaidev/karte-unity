@@ -1,0 +1,17 @@
+{
+    "name": "KarteSample",
+    "references": [
+        "GUID:a1c402260600043ee8cb9604f8f8991e"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "Newtonsoft.Json.dll"
+    ],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

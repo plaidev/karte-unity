@@ -1,0 +1,24 @@
+{
+  "name": "io.karte.unity",
+  "version": "0.0.6",
+  "displayName": "Karte",
+  "description": "Karte SDK for Unity",
+  "unity": "2019.4",
+  "author": {
+    "name": "Plaid, inc.",
+    "url": "https://github.com/plaidev/karte-unity"
+  },
+  "documentationUrl": "https://plaidev.github.io/karte-sdk-docs/unity/api/Io.Karte.Tracker.html",
+  "licensesUrl": "https://github.com/plaidev/karte-unity/blob/master/LICENSE",
+  "changelogUrl": "https://developers.karte.io/docs/release-note-unity-sdk",
+  "samples": [
+          {
+              "displayName": "Karte Sample",
+              "description": "Contains sample scripts and scenes.",
+              "path": "Samples~/SamplesKarte"
+          }
+      ],
+  "dependencies": {
+      "com.unity.nuget.newtonsoft-json": "1.1.2"
+  }
+}

@@ -26,20 +26,26 @@ MonoBehaviour:
     m_Scopes:
     - com.google
     m_IsDefault: 0
-  m_UserSelectedRegistryName: 
+  - m_Id: scoped:OpenUPM
+    m_Name: OpenUPM
+    m_Url: https://package.openupm.com
+    m_Scopes:
+    - com.needle
+    m_IsDefault: 0
+  m_UserSelectedRegistryName: OpenUPM
   m_UserAddingNewScopedRegistry: 0
   m_RegistryInfoDraft:
     m_ErrorMessage: 
     m_Original:
-      m_Id: scoped:Game Package Registry by Google
-      m_Name: Game Package Registry by Google
-      m_Url: https://unityregistry-pa.googleapis.com
+      m_Id: scoped:OpenUPM
+      m_Name: OpenUPM
+      m_Url: https://package.openupm.com
       m_Scopes:
-      - com.google
+      - com.needle
       m_IsDefault: 0
     m_Modified: 0
-    m_Name: Game Package Registry by Google
-    m_Url: https://unityregistry-pa.googleapis.com
+    m_Name: OpenUPM
+    m_Url: https://package.openupm.com
     m_Scopes:
-    - com.google
+    - com.needle
     m_SelectedScopeIndex: 0
