@@ -38,4 +38,10 @@ extern "C" {
         NSString *tokenStr = [NSString stringWithCString:token encoding:NSUTF8StringEncoding];
         [KRTApp registerFCMToken:tokenStr];
     }
+
+    int KRTAPP_openURL(const char *rawUrl) {
+        NSString *urlStr = [NSString stringWithCString:rawUrl encoding:NSUTF8StringEncoding];
+        NSURL *url = [NSURL URLWithString:urlStr];
+        return [KRTApp application:[UIApplication sharedApplication] openURL:url];
+    }
 }

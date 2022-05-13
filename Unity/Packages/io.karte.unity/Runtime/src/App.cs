@@ -4,8 +4,7 @@ using System.Runtime.InteropServices;
 using Newtonsoft.Json.Linq;
 using UnityEngine;
 
-namespace Io.Karte {
-    /// <summary>
+namespace Io.Karte { /// <summary>
     /// <para>SDK全体に影響のある機能を扱うクラスです。</para>
     /// </summary>
     public class App {
@@ -24,6 +23,8 @@ namespace Io.Karte {
         static extern void KRTApp_optOut ();
         [DllImport ("__Internal")]
         static extern void KRTApp_optIn ();
+        [DllImport ("__Internal")]
+        static extern bool KRTAPP_openURL (string url);
 #endif
 
         /// <summary>
@@ -98,6 +99,20 @@ namespace Io.Karte {
 #elif UNITY_ANDROID && !UNITY_EDITOR
             AndroidJavaClass tracker = new AndroidJavaClass ("io.karte.unity.UnityKarteApp");
             tracker.CallStatic ("optIn");
+#endif
+        }
+
+       /// <summary>
+        /// KarteでURLを処理します。
+        /// </summary>
+        public static bool OpenUrl (string url) {
+#if UNITY_IOS && !UNITY_EDITOR
+            return KRTAPP_openURL (url);
+#elif UNITY_ANDROID && !UNITY_EDITOR
+            AndroidJavaClass tracker = new AndroidJavaClass ("io.karte.unity.UnityKarteApp");
+            return tracker.CallStatic<bool> ("openUrl", new object[] { url });
+# else
+            return false;
 #endif
         }
     }

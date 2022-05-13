@@ -1,6 +1,7 @@
 package io.karte.unity;
 
 import android.app.Activity;
+import android.net.Uri;
 
 import com.unity3d.player.UnityPlayer;
 
@@ -63,5 +64,11 @@ public class UnityKarteApp {
 
   private static void renewVisitorId() {
     KarteApp.renewVisitorId();
+  }
+
+  private static boolean openUrl(String uriStr) {
+    Uri uri = Uri.parse(uriStr);
+    Activity activity = UnityPlayer.currentActivity;
+    return KarteApp.openUrl(uri, activity);
   }
 }
