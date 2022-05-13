@@ -1,10 +1,10 @@
 <dependencies>
   <androidPackages>
     <repositories>
-      <repository>https://jcenter.bintray.com</repository>
+      <repository>https://repo.maven.apache.org/maven2</repository>
     </repositories>
     <androidPackage spec="io.karte.android:core:+"> </androidPackage>
-    <androidPackage spec="io.karte.android:inappmessaging:.+"> </androidPackage>
+    <androidPackage spec="io.karte.android:inappmessaging:+"> </androidPackage>
     <androidPackage spec="io.karte.android:notifications:+"> </androidPackage>
     <androidPackage spec="io.karte.android:variables:+"> </androidPackage>
   </androidPackages>
