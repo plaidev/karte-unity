@@ -25,6 +25,10 @@ namespace Io.Karte {
         static extern void KRTTracker_trackClick (string userInfo);
         [DllImport ("__Internal")]
         static extern void KRTTracker_identify (string values);
+        [DllImport ("__Internal")]
+        static extern void KRTTracker_identifyWithUserId (string userId, string values);
+        [DllImport ("__Internal")]
+        static extern void KRTTracker_attribute (string values);
 #endif
 
         /// <summary>
@@ -110,6 +114,36 @@ namespace Io.Karte {
 #elif UNITY_ANDROID && !UNITY_EDITOR
             AndroidJavaClass tracker = new AndroidJavaClass ("io.karte.unity.UnityTracker");
             tracker.CallStatic ("identify", serializedValues);
+#endif
+        }
+
+        /// <summary>
+        /// <para>Identifyイベント（ユーザー情報）を送信します。</para>
+        /// <para>KARTEではユーザー情報もユーザー情報イベントとして、他のイベントと同じ形式で扱います。</para>
+        /// </summary>
+        /// <param name="userId">ユーザーを識別する一意なID</param>
+        /// <param name="values">ユーザーに紐付けるカスタムオブジェクト</param>
+        public static void Identify (string userId, JObject values) {
+            string serializedValues = values.ToString ();
+#if UNITY_IOS && !UNITY_EDITOR
+            KRTTracker_identifyWithUserId (userId, serializedValues);
+#elif UNITY_ANDROID && !UNITY_EDITOR
+            AndroidJavaClass tracker = new AndroidJavaClass ("io.karte.unity.UnityTracker");
+            tracker.CallStatic ("identify", new object[] { userId, serializedValues });
+#endif
+        }
+
+        /// <summary>
+        /// <para>Attributeイベント（ユーザー情報）を送信します。</para>
+        /// </summary>
+        /// <param name="values">ユーザーに紐付けるカスタムオブジェクト</param>
+        public static void Attribute (JObject values) {
+            string serializedValues = values.ToString ();
+#if UNITY_IOS && !UNITY_EDITOR
+            KRTTracker_attribute (serializedValues);
+#elif UNITY_ANDROID && !UNITY_EDITOR
+            AndroidJavaClass tracker = new AndroidJavaClass ("io.karte.unity.UnityTracker");
+            tracker.CallStatic ("attribute", serializedValues);
 #endif
         }
     }

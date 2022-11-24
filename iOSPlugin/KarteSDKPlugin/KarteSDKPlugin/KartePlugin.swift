@@ -15,7 +15,7 @@ class KartePlugin: NSObject, Library {
     }
     
     static var version: String {
-        "1.0.0"
+        "1.0.1"
     }
     
     static var isPublic: Bool {
