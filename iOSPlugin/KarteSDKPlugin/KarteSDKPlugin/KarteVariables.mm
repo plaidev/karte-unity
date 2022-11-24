@@ -111,4 +111,17 @@ extern "C" {
          KRTVariable *variable = [KRTVariables variableForKey:keyStr];
         return [variable isDefined];
     }
+
+    int KRTVariables_lastFetchTime() {
+        NSDate *lastFetchTime = [KRTVariables lastFetchTime];
+        return [lastFetchTime timeIntervalSince1970];
+    }
+
+    int KRTVariables_lastFetchStatus() {
+        return (int)[KRTVariables lastFetchStatus];
+    }
+
+    int KRTVariables_hasSuccessfulLastFetch(int seconds) {
+        return (int)[KRTVariables hasSuccessfulLastFetchInSeconds:seconds];
+    }
 }

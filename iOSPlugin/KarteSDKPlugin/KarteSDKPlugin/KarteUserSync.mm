@@ -15,4 +15,9 @@ extern "C" {
         NSString *str = [KRTUserSync appendingQueryParameterWithURLString:urlStr];
         RETURN_RETAINED_STR(str)
     }
+
+    const char *KRTUserSync_getUserSyncScript() {
+        NSString *str = [KRTUserSync getUserSyncScript];
+        RETURN_RETAINED_STR(str)
+    }
 }

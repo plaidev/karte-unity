@@ -44,8 +44,19 @@ extern "C" {
         [KRTTracker identify:dict];
     }
 
+    void KRTTracker_identifyWithUserId(const char *userId, const char *serializedValues) {
+        NSDictionary *dict = [Util dictionaryWithSerializedString: serializedValues];
+        NSString *userIdStr = [NSString stringWithCString:userId encoding:NSUTF8StringEncoding];
+        [KRTTracker identify:userIdStr :dict];
+    }
+
     void KRTTracker_trackClick(const char *serializedValues) {
         NSDictionary *userInfo = [Util dictionaryWithSerializedString: serializedValues];
         [KRTTracker trackClickWithUserInfo:userInfo];
+    }
+
+    void KRTTracker_attribute(const char *serializedValues) {
+        NSDictionary *dict = [Util dictionaryWithSerializedString: serializedValues];
+        [KRTTracker attribute:dict];
     }
 }

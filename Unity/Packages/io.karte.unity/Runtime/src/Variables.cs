@@ -35,6 +35,12 @@ namespace Io.Karte {
         static extern void KRTVariables_trackClick (string serializedVariables);
         [DllImport ("__Internal")]
         static extern void KRTVariables_trackClickWithValues (string serializedVariables, string serializedValues);
+        [DllImport ("__Internal")]
+        static extern int KRTVariables_lastFetchTime ();
+        [DllImport ("__Internal")]
+        static extern int KRTVariables_lastFetchStatus ();
+        [DllImport ("__Internal")]
+        static extern bool KRTVariables_hasSuccessfulLastFetch (int seconds);
 #endif
 
 
@@ -151,6 +157,53 @@ namespace Io.Karte {
 #endif
         }
 
+        /// <summary>
+        /// <para>最終フェッチ完了時間を返します。</para>
+        /// <para>未フェッチな場合は nil を返します。</para>
+        /// <para>この機能はiOSのみで提供されています。</para>
+        /// <para>Androidでは常にnullを返します。</para>
+        /// </summary>
+        public static DateTime? LastFetchTime () {
+            int lastFetchTime = 0;
+#if UNITY_IOS && !UNITY_EDITOR
+            lastFetchTime = KRTVariables_lastFetchTime ();
+#elif UNITY_ANDROID && !UNITY_EDITOR
+#endif
+            if (lastFetchTime == 0) {
+                return null;
+            }
 
+            DateTime dt = new DateTime(1970, 1, 1, 0, 0, 0);
+            dt = dt.AddSeconds(lastFetchTime);
+            return dt;
+        }
+
+        /// <summary>
+        /// <para>最終フェッチ完了ステータスを返します。</para>
+        /// <para>この機能はiOSのみで提供されています。</para>
+        /// <para>Androidでは常に0を返します。</para>
+        /// </summary>
+        public static int LastFetchStatus () {
+            int lastFetchStatus = 0;
+#if UNITY_IOS && !UNITY_EDITOR
+            lastFetchStatus = KRTVariables_lastFetchStatus ();
+#elif UNITY_ANDROID && !UNITY_EDITOR
+#endif
+             return lastFetchStatus;
+        }
+
+        /// <summary>
+        /// <para>直近指定秒以内に成功したフェッチ結果があるかどうかを返します。</para>
+        /// <para>この機能はiOSのみで提供されています。</para>
+        /// <para>Androidでは常にfalseを返します。</para>
+        /// </summary>
+        public static bool HasSuccessfulLastFetchIn (int seconds) {
+            bool hasSuccessfulLastFetchIn = false;
+#if UNITY_IOS && !UNITY_EDITOR
+            hasSuccessfulLastFetchIn = KRTVariables_hasSuccessfulLastFetch (seconds);
+#elif UNITY_ANDROID && !UNITY_EDITOR
+#endif
+             return hasSuccessfulLastFetchIn;
+        }
     }
 }

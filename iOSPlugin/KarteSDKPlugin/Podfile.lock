@@ -1,16 +1,18 @@
 PODS:
-  - KarteCore (2.5.0):
-    - KarteUtilities (~> 3.1)
-  - KarteInAppMessaging (2.4.0):
+  - KarteCore (2.21.0):
+    - KarteUtilities (~> 3.3)
+  - KarteInAppMessaging (2.11.0):
     - KarteCore (~> 2.3)
     - KarteUtilities (~> 3.0)
-  - KarteRemoteNotification (2.1.0):
+  - KarteRemoteNotification (2.7.1):
     - KarteCore (~> 2.0)
     - KarteUtilities (~> 3.0)
-  - KarteUtilities (3.1.0)
-  - KarteVariables (2.0.1):
+  - KarteUtilities (3.7.0):
+    - KarteUtilities/standard (= 3.7.0)
+  - KarteUtilities/standard (3.7.0)
+  - KarteVariables (2.4.1):
     - KarteCore (~> 2.0)
-    - KarteUtilities (~> 3.0)
+    - KarteUtilities (~> 3.5)
 
 DEPENDENCIES:
   - KarteCore
@@ -19,7 +21,7 @@ DEPENDENCIES:
   - KarteVariables
 
 SPEC REPOS:
-  https://cdn.cocoapods.org/:
+  trunk:
     - KarteCore
     - KarteInAppMessaging
     - KarteRemoteNotification
@@ -27,12 +29,12 @@ SPEC REPOS:
     - KarteVariables
 
 SPEC CHECKSUMS:
-  KarteCore: 9a17aac2e3c1ed259ae98373bf4236851dbb663f
-  KarteInAppMessaging: b76a77ada5f7c99c52b5cb1d442462ead8417762
-  KarteRemoteNotification: 2f4dbe3e389c4393b5ca26dd0d008dc342915ad9
-  KarteUtilities: ccc63f2916deb45485d1b2b63516a98b5ecba773
-  KarteVariables: d39eec7a2e263c1c63fd6b8af9e04be57bcfcd0a
+  KarteCore: d1a9579683d53f1489dfd90cf9612ea9a25c97a6
+  KarteInAppMessaging: d7762b55622c657ed5a25c041c764a3ef7e6f2df
+  KarteRemoteNotification: 2659e88b901733137cfbd03f258e03a1589049de
+  KarteUtilities: 432cbe181f861314eecf37bd2bd236d2c9971721
+  KarteVariables: 2390ed3840bcca6a233e7beeb0215e33246b7809
 
 PODFILE CHECKSUM: 5d82846827304d15ad7a9db24a5a1e70a3566d3d
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.11.3

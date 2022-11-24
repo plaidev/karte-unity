@@ -35,6 +35,15 @@ class UnityTracker {
         }
     }
 
+    private static void identify(String userId, String serializedValues) {
+        try {
+            JSONObject values = new JSONObject(serializedValues);
+            Tracker.identify(userId, values);
+        } catch (JSONException e) {
+            Logger.e(LOG_TAG, "Failed to parse values JSON.", e);
+        }
+    }
+
     private static void view(String viewName) {
         Tracker.view(viewName);
     }
@@ -56,6 +65,15 @@ class UnityTracker {
         try {
             JSONObject values = new JSONObject(serializedValues);
             Tracker.view(viewName, values);
+        } catch (JSONException e) {
+            Logger.e(LOG_TAG, "Failed to parse values JSON.", e);
+        }
+    }
+
+    private static void attribute(String serializedValues) {
+        try {
+            JSONObject values = new JSONObject(serializedValues);
+            Tracker.attribute(values);
         } catch (JSONException e) {
             Logger.e(LOG_TAG, "Failed to parse values JSON.", e);
         }
