@@ -1,9 +1,5 @@
 package io.karte.unity;
 
-import android.app.Activity;
-
-import com.unity3d.player.UnityPlayer;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
