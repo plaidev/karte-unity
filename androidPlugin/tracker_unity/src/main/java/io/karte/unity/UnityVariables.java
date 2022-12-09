@@ -1,7 +1,5 @@
 package io.karte.unity;
 
-import android.app.Activity;
-
 import com.unity3d.player.UnityPlayer;
 
 import org.json.JSONArray;
@@ -39,22 +37,6 @@ class UnityVariables {
             }
         });
     }
-//
-//    private static String getVariable(String key) {
-//        Activity activity = UnityPlayer.currentActivity;
-//        io.karte.android.tracker.Variables variables = io.karte.android.tracker.Variables.getInstance(activity);
-//        Variable variable = variables.getVariable(key);
-//        JSONObject json = new JSONObject();
-//        try {
-//            json.put("campaignId", variable.getCampaignId());
-//            json.put("shortenId", variable.getShortenId());
-//            json.put("value", variable.getString(""));
-//        } catch (JSONException e) {
-//            KRLog.e(LOG_TAG, "Failed to construct a JSON.", e);
-//            return "{}";
-//        }
-//        return json.toString();
-//    }
 
     private static ArrayList<Variable> getVariablesFromSerializedKeys(String serializedKeys) {
         try {

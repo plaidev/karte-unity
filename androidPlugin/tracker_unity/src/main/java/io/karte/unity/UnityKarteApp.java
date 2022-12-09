@@ -11,7 +11,6 @@ import org.json.JSONObject;
 import io.karte.android.core.logger.LogLevel;
 import io.karte.android.core.logger.Logger;
 import io.karte.android.notifications.Notifications;
-import io.karte.android.tracking.Tracker;
 import io.karte.android.KarteApp;
 import io.karte.android.core.config.Config;
 

@@ -1,0 +1,3410 @@
+id: cs.temp.dll
+language: CSharp
+name:
+  Default: cs.temp.dll
+qualifiedName:
+  Default: cs.temp.dll
+type: Assembly
+modifiers: {}
+items:
+- id: Io.Karte
+  commentId: N:Io.Karte
+  language: CSharp
+  name:
+    CSharp: Io.Karte
+    VB: Io.Karte
+  nameWithType:
+    CSharp: Io.Karte
+    VB: Io.Karte
+  qualifiedName:
+    CSharp: Io.Karte
+    VB: Io.Karte
+  type: Namespace
+  assemblies:
+  - cs.temp.dll
+  modifiers: {}
+  items:
+  - id: Io.Karte.Variables
+    commentId: T:Io.Karte.Variables
+    language: CSharp
+    name:
+      CSharp: Variables
+      VB: Variables
+    nameWithType:
+      CSharp: Variables
+      VB: Variables
+    qualifiedName:
+      CSharp: Io.Karte.Variables
+      VB: Io.Karte.Variables
+    type: Class
+    assemblies:
+    - cs.temp.dll
+    namespace: Io.Karte
+    source:
+      id: Variables
+      path: ''
+      startLine: 982
+    summary: "\n<p>Variablesクラスは、設定値配信に関連するクラスで、以下の機能を提供します。\n<ul><li>設定値の取得</li><li>設定値の保持・管理</li><li>効果測定用のイベントの送信</li></ul>\n</p>\n<p>なおVariablesクラスを利用するためには、事前にSDKの初期化が必要です。</p>\n<p>初期化が行われていない場合、例外が発生する可能性があります。</p>\n"
+    example: []
+    syntax:
+      content:
+        CSharp: public class Variables
+        VB: Public Class Variables
+    inheritance:
+    - System.Object
+    modifiers:
+      CSharp:
+      - public
+      - class
+      VB:
+      - Public
+      - Class
+    items:
+    - id: Io.Karte.Variables.Fetch
+      commentId: M:Io.Karte.Variables.Fetch
+      language: CSharp
+      name:
+        CSharp: Fetch()
+        VB: Fetch()
+      nameWithType:
+        CSharp: Variables.Fetch()
+        VB: Variables.Fetch()
+      qualifiedName:
+        CSharp: Io.Karte.Variables.Fetch()
+        VB: Io.Karte.Variables.Fetch()
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: Io.Karte
+      source:
+        id: Fetch
+        path: ''
+        startLine: 1011
+      summary: "\n<p>設定値を取得します。</p>\n<p>取得は非同期で行われるため、設定値の取得完了をトリガーに処理を行いたい場合は、<code>FetchWithCompletion</code>を利用してください。</p>\n<p>※事前にトラッカーの初期化が必要です。</p>\n<p>初期化時に指定したアプリケーションキーに対応するSDKの初期化が行われていない場合は、例外が発生します。</p>\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public static void Fetch()
+          VB: Public Shared Sub Fetch
+      overload: Io.Karte.Variables.Fetch*
+      modifiers:
+        CSharp:
+        - public
+        - static
+        VB:
+        - Public
+        - Shared
+    - id: Io.Karte.Variables.FetchWithCompletion(Action{System.Boolean})
+      commentId: M:Io.Karte.Variables.FetchWithCompletion(Action{System.Boolean})
+      language: CSharp
+      name:
+        CSharp: FetchWithCompletion(Action<Boolean>)
+        VB: FetchWithCompletion(Action(Of Boolean))
+      nameWithType:
+        CSharp: Variables.FetchWithCompletion(Action<Boolean>)
+        VB: Variables.FetchWithCompletion(Action(Of Boolean))
+      qualifiedName:
+        CSharp: Io.Karte.Variables.FetchWithCompletion(Action<System.Boolean>)
+        VB: Io.Karte.Variables.FetchWithCompletion(Action(Of System.Boolean))
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: Io.Karte
+      source:
+        id: FetchWithCompletion
+        path: ''
+        startLine: 1031
+      summary: "\n<p>設定値を取得します。</p>\n<p>設定値の取得が完了したタイミングで、引数に指定したクロージャにコールバックされます。</p>\n<example>\n<pre><code>Variables.FetchWithCompletion ((result) => {\n    string str = result ? &quot;取得成功&quot; : &quot;取得失敗&quot;;\n});</code></pre>\n</example>\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public static void FetchWithCompletion(Action<bool> callback)
+          VB: Public Shared Sub FetchWithCompletion(callback As Action(Of Boolean))
+        parameters:
+        - id: callback
+          type: Action{System.Boolean}
+          description: 取得完了通知クロージャ
+      overload: Io.Karte.Variables.FetchWithCompletion*
+      modifiers:
+        CSharp:
+        - public
+        - static
+        VB:
+        - Public
+        - Shared
+    - id: Io.Karte.Variables.GetVariable(System.String)
+      commentId: M:Io.Karte.Variables.GetVariable(System.String)
+      language: CSharp
+      name:
+        CSharp: GetVariable(String)
+        VB: GetVariable(String)
+      nameWithType:
+        CSharp: Variables.GetVariable(String)
+        VB: Variables.GetVariable(String)
+      qualifiedName:
+        CSharp: Io.Karte.Variables.GetVariable(System.String)
+        VB: Io.Karte.Variables.GetVariable(System.String)
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: Io.Karte
+      source:
+        id: GetVariable
+        path: ''
+        startLine: 1049
+      summary: "\n<p>キーに紐付くVariableオブジェクトを返します。</p>\n<p>接客サービス側で設定値を設定していない場合であってもオブジェクトは返ります。</p>\n<p>設定値の設定有無はVariableクラスの <code>isDefined</code>プロパティを使って判定します。</p>\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public static Variable GetVariable(string key)
+          VB: Public Shared Function GetVariable(key As String) As Variable
+        parameters:
+        - id: key
+          type: System.String
+          description: 設定値キー
+        return:
+          type: Io.Karte.Variable
+          description: Variableオブジェクトを返します。
+      overload: Io.Karte.Variables.GetVariable*
+      modifiers:
+        CSharp:
+        - public
+        - static
+        VB:
+        - Public
+        - Shared
+    - id: Io.Karte.Variables.TrackOpen(Io.Karte.Variable[])
+      commentId: M:Io.Karte.Variables.TrackOpen(Io.Karte.Variable[])
+      language: CSharp
+      name:
+        CSharp: TrackOpen(Variable[])
+        VB: TrackOpen(Variable())
+      nameWithType:
+        CSharp: Variables.TrackOpen(Variable[])
+        VB: Variables.TrackOpen(Variable())
+      qualifiedName:
+        CSharp: Io.Karte.Variables.TrackOpen(Io.Karte.Variable[])
+        VB: Io.Karte.Variables.TrackOpen(Io.Karte.Variable())
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: Io.Karte
+      source:
+        id: TrackOpen
+        path: ''
+        startLine: 1057
+      summary: "\n指定された設定値に関連するキャンペーン情報を元に効果測定用のイベント（message_open）を発火します。\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public static void TrackOpen(Variable[] vars)
+          VB: Public Shared Sub TrackOpen(vars As Variable())
+        parameters:
+        - id: vars
+          type: Io.Karte.Variable[]
+          description: 設定値の配列
+      overload: Io.Karte.Variables.TrackOpen*
+      modifiers:
+        CSharp:
+        - public
+        - static
+        VB:
+        - Public
+        - Shared
+    - id: Io.Karte.Variables.TrackOpen(Io.Karte.Variable[],JObject)
+      commentId: M:Io.Karte.Variables.TrackOpen(Io.Karte.Variable[],JObject)
+      language: CSharp
+      name:
+        CSharp: TrackOpen(Variable[], JObject)
+        VB: TrackOpen(Variable(), JObject)
+      nameWithType:
+        CSharp: Variables.TrackOpen(Variable[], JObject)
+        VB: Variables.TrackOpen(Variable(), JObject)
+      qualifiedName:
+        CSharp: Io.Karte.Variables.TrackOpen(Io.Karte.Variable[], JObject)
+        VB: Io.Karte.Variables.TrackOpen(Io.Karte.Variable(), JObject)
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: Io.Karte
+      source:
+        id: TrackOpen
+        path: ''
+        startLine: 1074
+      summary: "\n指定された設定値に関連するキャンペーン情報を元に効果測定用のイベント（message_open）を発火します。\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public static void TrackOpen(Variable[] vars, JObject values)
+          VB: Public Shared Sub TrackOpen(vars As Variable(), values As JObject)
+        parameters:
+        - id: vars
+          type: Io.Karte.Variable[]
+          description: 設定値の配列
+        - id: values
+          type: JObject
+          description: イベントに紐付けるカスタムオブジェクト
+      overload: Io.Karte.Variables.TrackOpen*
+      modifiers:
+        CSharp:
+        - public
+        - static
+        VB:
+        - Public
+        - Shared
+    - id: Io.Karte.Variables.TrackClick(Io.Karte.Variable[])
+      commentId: M:Io.Karte.Variables.TrackClick(Io.Karte.Variable[])
+      language: CSharp
+      name:
+        CSharp: TrackClick(Variable[])
+        VB: TrackClick(Variable())
+      nameWithType:
+        CSharp: Variables.TrackClick(Variable[])
+        VB: Variables.TrackClick(Variable())
+      qualifiedName:
+        CSharp: Io.Karte.Variables.TrackClick(Io.Karte.Variable[])
+        VB: Io.Karte.Variables.TrackClick(Io.Karte.Variable())
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: Io.Karte
+      source:
+        id: TrackClick
+        path: ''
+        startLine: 1090
+      summary: "\n指定された設定値に関連するキャンペーン情報を元に効果測定用のイベント（message_click）を発火します。\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public static void TrackClick(Variable[] vars)
+          VB: Public Shared Sub TrackClick(vars As Variable())
+        parameters:
+        - id: vars
+          type: Io.Karte.Variable[]
+          description: 設定値の配列
+      overload: Io.Karte.Variables.TrackClick*
+      modifiers:
+        CSharp:
+        - public
+        - static
+        VB:
+        - Public
+        - Shared
+    - id: Io.Karte.Variables.TrackClick(Io.Karte.Variable[],JObject)
+      commentId: M:Io.Karte.Variables.TrackClick(Io.Karte.Variable[],JObject)
+      language: CSharp
+      name:
+        CSharp: TrackClick(Variable[], JObject)
+        VB: TrackClick(Variable(), JObject)
+      nameWithType:
+        CSharp: Variables.TrackClick(Variable[], JObject)
+        VB: Variables.TrackClick(Variable(), JObject)
+      qualifiedName:
+        CSharp: Io.Karte.Variables.TrackClick(Io.Karte.Variable[], JObject)
+        VB: Io.Karte.Variables.TrackClick(Io.Karte.Variable(), JObject)
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: Io.Karte
+      source:
+        id: TrackClick
+        path: ''
+        startLine: 1106
+      summary: "\n指定された設定値に関連するキャンペーン情報を元に効果測定用のイベント（message_click）を発火します。\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public static void TrackClick(Variable[] vars, JObject values)
+          VB: Public Shared Sub TrackClick(vars As Variable(), values As JObject)
+        parameters:
+        - id: vars
+          type: Io.Karte.Variable[]
+          description: 設定値の配列
+        - id: values
+          type: JObject
+          description: イベントに紐付けるカスタムオブジェクト
+      overload: Io.Karte.Variables.TrackClick*
+      modifiers:
+        CSharp:
+        - public
+        - static
+        VB:
+        - Public
+        - Shared
+    - id: Io.Karte.Variables.LastFetchTime
+      commentId: M:Io.Karte.Variables.LastFetchTime
+      language: CSharp
+      name:
+        CSharp: LastFetchTime()
+        VB: LastFetchTime()
+      nameWithType:
+        CSharp: Variables.LastFetchTime()
+        VB: Variables.LastFetchTime()
+      qualifiedName:
+        CSharp: Io.Karte.Variables.LastFetchTime()
+        VB: Io.Karte.Variables.LastFetchTime()
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: Io.Karte
+      source:
+        id: LastFetchTime
+        path: ''
+        startLine: 1124
+      summary: "\n<p>最終フェッチ完了時間を返します。</p>\n<p>未フェッチな場合は nil を返します。</p>\n<p>この機能はiOSのみで提供されています。</p>\n<p>Androidでは常にnullを返します。</p>\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public static DateTime? LastFetchTime()
+          VB: Public Shared Function LastFetchTime As DateTime?
+        return:
+          type: System.Nullable{DateTime}
+      overload: Io.Karte.Variables.LastFetchTime*
+      modifiers:
+        CSharp:
+        - public
+        - static
+        VB:
+        - Public
+        - Shared
+    - id: Io.Karte.Variables.LastFetchStatus
+      commentId: M:Io.Karte.Variables.LastFetchStatus
+      language: CSharp
+      name:
+        CSharp: LastFetchStatus()
+        VB: LastFetchStatus()
+      nameWithType:
+        CSharp: Variables.LastFetchStatus()
+        VB: Variables.LastFetchStatus()
+      qualifiedName:
+        CSharp: Io.Karte.Variables.LastFetchStatus()
+        VB: Io.Karte.Variables.LastFetchStatus()
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: Io.Karte
+      source:
+        id: LastFetchStatus
+        path: ''
+        startLine: 1144
+      summary: "\n<p>最終フェッチ完了ステータスを返します。</p>\n<p>この機能はiOSのみで提供されています。</p>\n<p>Androidでは常に0を返します。</p>\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public static int LastFetchStatus()
+          VB: Public Shared Function LastFetchStatus As Integer
+        return:
+          type: System.Int32
+      overload: Io.Karte.Variables.LastFetchStatus*
+      modifiers:
+        CSharp:
+        - public
+        - static
+        VB:
+        - Public
+        - Shared
+    - id: Io.Karte.Variables.HasSuccessfulLastFetchIn(System.Int32)
+      commentId: M:Io.Karte.Variables.HasSuccessfulLastFetchIn(System.Int32)
+      language: CSharp
+      name:
+        CSharp: HasSuccessfulLastFetchIn(Int32)
+        VB: HasSuccessfulLastFetchIn(Int32)
+      nameWithType:
+        CSharp: Variables.HasSuccessfulLastFetchIn(Int32)
+        VB: Variables.HasSuccessfulLastFetchIn(Int32)
+      qualifiedName:
+        CSharp: Io.Karte.Variables.HasSuccessfulLastFetchIn(System.Int32)
+        VB: Io.Karte.Variables.HasSuccessfulLastFetchIn(System.Int32)
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: Io.Karte
+      source:
+        id: HasSuccessfulLastFetchIn
+        path: ''
+        startLine: 1158
+      summary: "\n<p>直近指定秒以内に成功したフェッチ結果があるかどうかを返します。</p>\n<p>この機能はiOSのみで提供されています。</p>\n<p>Androidでは常にfalseを返します。</p>\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public static bool HasSuccessfulLastFetchIn(int seconds)
+          VB: Public Shared Function HasSuccessfulLastFetchIn(seconds As Integer) As Boolean
+        parameters:
+        - id: seconds
+          type: System.Int32
+        return:
+          type: System.Boolean
+      overload: Io.Karte.Variables.HasSuccessfulLastFetchIn*
+      modifiers:
+        CSharp:
+        - public
+        - static
+        VB:
+        - Public
+        - Shared
+  - id: Io.Karte.UserSync
+    commentId: T:Io.Karte.UserSync
+    language: CSharp
+    name:
+      CSharp: UserSync
+      VB: UserSync
+    nameWithType:
+      CSharp: UserSync
+      VB: UserSync
+    qualifiedName:
+      CSharp: Io.Karte.UserSync
+      VB: Io.Karte.UserSync
+    type: Class
+    assemblies:
+    - cs.temp.dll
+    namespace: Io.Karte
+    source:
+      id: UserSync
+      path: ''
+      startLine: 1179
+    summary: "\n<p>WebView 連携するためのクラスです。</p>\n<p>WebページURLに連携用のクエリパラメータを付与した状態で、URLをWebViewで開くことでWebとAppのユーザーの紐付けが行われます。</p>\n<p>なお連携を行うためにはWebページに、KARTEのタグが埋め込まれている必要があります。</p>\n"
+    example: []
+    syntax:
+      content:
+        CSharp: public class UserSync
+        VB: Public Class UserSync
+    inheritance:
+    - System.Object
+    modifiers:
+      CSharp:
+      - public
+      - class
+      VB:
+      - Public
+      - Class
+    items:
+    - id: Io.Karte.UserSync.AppendUserSyncQueryParameter(System.String)
+      commentId: M:Io.Karte.UserSync.AppendUserSyncQueryParameter(System.String)
+      language: CSharp
+      name:
+        CSharp: AppendUserSyncQueryParameter(String)
+        VB: AppendUserSyncQueryParameter(String)
+      nameWithType:
+        CSharp: UserSync.AppendUserSyncQueryParameter(String)
+        VB: UserSync.AppendUserSyncQueryParameter(String)
+      qualifiedName:
+        CSharp: Io.Karte.UserSync.AppendUserSyncQueryParameter(System.String)
+        VB: Io.Karte.UserSync.AppendUserSyncQueryParameter(System.String)
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: Io.Karte
+      source:
+        id: AppendUserSyncQueryParameter
+        path: ''
+        startLine: 1194
+      summary: "\n指定されたURL文字列にWebView連携用のクエリパラメータを付与します。\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public static string AppendUserSyncQueryParameter(string urlString)
+          VB: Public Shared Function AppendUserSyncQueryParameter(urlString As String) As String
+        parameters:
+        - id: urlString
+          type: System.String
+          description: 連携するページのURL文字列
+        return:
+          type: System.String
+          description: "\n<p>連携用のクエリパラメータを付与したURL文字列を返します。</p>\n<p>指定されたURL文字列の形式が正しくない場合、またはSDKの初期化が行われていない場合は、引数に指定したURL文字列を返します。</p>\n"
+      overload: Io.Karte.UserSync.AppendUserSyncQueryParameter*
+      modifiers:
+        CSharp:
+        - public
+        - static
+        VB:
+        - Public
+        - Shared
+    - id: Io.Karte.UserSync.getUserSyncScript
+      commentId: M:Io.Karte.UserSync.getUserSyncScript
+      language: CSharp
+      name:
+        CSharp: getUserSyncScript()
+        VB: getUserSyncScript()
+      nameWithType:
+        CSharp: UserSync.getUserSyncScript()
+        VB: UserSync.getUserSyncScript()
+      qualifiedName:
+        CSharp: Io.Karte.UserSync.getUserSyncScript()
+        VB: Io.Karte.UserSync.getUserSyncScript()
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: Io.Karte
+      source:
+        id: getUserSyncScript
+        path: ''
+        startLine: 1214
+      summary: "\n<p>WebViewに連携するためのスクリプトを生成します。</p>\n<p>スクリプトをユーザースクリプトとしてWebViewに設定することで連携できます。</p>\n<p>なおSDKの初期化が行われていない場合はnilが返却されます。</p>\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public static string getUserSyncScript()
+          VB: Public Shared Function getUserSyncScript As String
+        return:
+          type: System.String
+          description: "\n<p>生成したスクリプト文字列を返します。</p>\n<p>指定されたURL文字列の形式が正しくない場合、またはSDKの初期化が行われていない場合は、引数に指定したURL文字列を返します。</p>\n"
+      overload: Io.Karte.UserSync.getUserSyncScript*
+      modifiers:
+        CSharp:
+        - public
+        - static
+        VB:
+        - Public
+        - Shared
+  - id: Io.Karte.KarteAttributes
+    commentId: T:Io.Karte.KarteAttributes
+    language: CSharp
+    name:
+      CSharp: KarteAttributes
+      VB: KarteAttributes
+    nameWithType:
+      CSharp: KarteAttributes
+      VB: KarteAttributes
+    qualifiedName:
+      CSharp: Io.Karte.KarteAttributes
+      VB: Io.Karte.KarteAttributes
+    type: Class
+    assemblies:
+    - cs.temp.dll
+    namespace: Io.Karte
+    source:
+      id: KarteAttributes
+      path: ''
+      startLine: 1232
+    summary: "\nKarteAttributesクラスは、 KARTEが自動で処理するプッシュ通知のデータを取り扱うクラスです。\n"
+    example: []
+    syntax:
+      content:
+        CSharp: public class KarteAttributes
+        VB: Public Class KarteAttributes
+    inheritance:
+    - System.Object
+    modifiers:
+      CSharp:
+      - public
+      - class
+      VB:
+      - Public
+      - Class
+    items:
+    - id: Io.Karte.KarteAttributes.Body
+      commentId: P:Io.Karte.KarteAttributes.Body
+      language: CSharp
+      name:
+        CSharp: Body
+        VB: Body
+      nameWithType:
+        CSharp: KarteAttributes.Body
+        VB: KarteAttributes.Body
+      qualifiedName:
+        CSharp: Io.Karte.KarteAttributes.Body
+        VB: Io.Karte.KarteAttributes.Body
+      type: Property
+      assemblies:
+      - cs.temp.dll
+      namespace: Io.Karte
+      source:
+        id: Body
+        path: ''
+        startLine: 1256
+      summary: "\nプッシュ通知の本文を返します。これはプッシュ通知アクションに指定した静的変数のbodyに対応しています。\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public string Body { get; }
+          VB: Public ReadOnly Property Body As String
+        parameters: []
+        return:
+          type: System.String
+          description: "\nプッシュ通知の本文を返します。\n"
+      overload: Io.Karte.KarteAttributes.Body*
+      modifiers:
+        CSharp:
+        - public
+        - get
+        VB:
+        - Public
+        - ReadOnly
+    - id: Io.Karte.KarteAttributes.BigImageUrl
+      commentId: P:Io.Karte.KarteAttributes.BigImageUrl
+      language: CSharp
+      name:
+        CSharp: BigImageUrl
+        VB: BigImageUrl
+      nameWithType:
+        CSharp: KarteAttributes.BigImageUrl
+        VB: KarteAttributes.BigImageUrl
+      qualifiedName:
+        CSharp: Io.Karte.KarteAttributes.BigImageUrl
+        VB: Io.Karte.KarteAttributes.BigImageUrl
+      type: Property
+      assemblies:
+      - cs.temp.dll
+      namespace: Io.Karte
+      source:
+        id: BigImageUrl
+        path: ''
+        startLine: 1266
+      summary: "\nプッシュ通知の画像URLを返します。これはプッシュ通知アクションに指定した静的変数のattachment_urlに対応しています。\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public string BigImageUrl { get; }
+          VB: Public ReadOnly Property BigImageUrl As String
+        parameters: []
+        return:
+          type: System.String
+          description: "\nプッシュ通知の画像URLを返します。\n"
+      overload: Io.Karte.KarteAttributes.BigImageUrl*
+      modifiers:
+        CSharp:
+        - public
+        - get
+        VB:
+        - Public
+        - ReadOnly
+    - id: Io.Karte.KarteAttributes.Link
+      commentId: P:Io.Karte.KarteAttributes.Link
+      language: CSharp
+      name:
+        CSharp: Link
+        VB: Link
+      nameWithType:
+        CSharp: KarteAttributes.Link
+        VB: KarteAttributes.Link
+      qualifiedName:
+        CSharp: Io.Karte.KarteAttributes.Link
+        VB: Io.Karte.KarteAttributes.Link
+      type: Property
+      assemblies:
+      - cs.temp.dll
+      namespace: Io.Karte
+      source:
+        id: Link
+        path: ''
+        startLine: 1276
+      summary: "\nプッシュ通知のクリックリンクを返します。これはプッシュ通知アクションに指定した静的変数のurlに対応しています。\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public string Link { get; }
+          VB: Public ReadOnly Property Link As String
+        parameters: []
+        return:
+          type: System.String
+          description: "\nプッシュ通知のクリックリンクを返します。\n"
+      overload: Io.Karte.KarteAttributes.Link*
+      modifiers:
+        CSharp:
+        - public
+        - get
+        VB:
+        - Public
+        - ReadOnly
+    - id: Io.Karte.KarteAttributes.Channel
+      commentId: P:Io.Karte.KarteAttributes.Channel
+      language: CSharp
+      name:
+        CSharp: Channel
+        VB: Channel
+      nameWithType:
+        CSharp: KarteAttributes.Channel
+        VB: KarteAttributes.Channel
+      qualifiedName:
+        CSharp: Io.Karte.KarteAttributes.Channel
+        VB: Io.Karte.KarteAttributes.Channel
+      type: Property
+      assemblies:
+      - cs.temp.dll
+      namespace: Io.Karte
+      source:
+        id: Channel
+        path: ''
+        startLine: 1286
+      summary: "\nプッシュ通知のチャンネルIDを返します。これはプッシュ通知アクションに指定した静的変数のandroid_channel_idに対応しています。\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public string Channel { get; }
+          VB: Public ReadOnly Property Channel As String
+        parameters: []
+        return:
+          type: System.String
+          description: "\nプッシュ通知のチャンネルIDを返します。\n"
+      overload: Io.Karte.KarteAttributes.Channel*
+      modifiers:
+        CSharp:
+        - public
+        - get
+        VB:
+        - Public
+        - ReadOnly
+    - id: Io.Karte.KarteAttributes.Sound
+      commentId: P:Io.Karte.KarteAttributes.Sound
+      language: CSharp
+      name:
+        CSharp: Sound
+        VB: Sound
+      nameWithType:
+        CSharp: KarteAttributes.Sound
+        VB: KarteAttributes.Sound
+      qualifiedName:
+        CSharp: Io.Karte.KarteAttributes.Sound
+        VB: Io.Karte.KarteAttributes.Sound
+      type: Property
+      assemblies:
+      - cs.temp.dll
+      namespace: Io.Karte
+      source:
+        id: Sound
+        path: ''
+        startLine: 1296
+      summary: "\nプッシュ通知の通知音可否を返します。これはプッシュ通知アクションに指定した静的変数のsound_for_androidに対応しています。\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public bool Sound { get; }
+          VB: Public ReadOnly Property Sound As Boolean
+        parameters: []
+        return:
+          type: System.Boolean
+          description: "\nプッシュ通知の通知音可否を返します。\n"
+      overload: Io.Karte.KarteAttributes.Sound*
+      modifiers:
+        CSharp:
+        - public
+        - get
+        VB:
+        - Public
+        - ReadOnly
+    - id: Io.Karte.KarteAttributes.Title
+      commentId: P:Io.Karte.KarteAttributes.Title
+      language: CSharp
+      name:
+        CSharp: Title
+        VB: Title
+      nameWithType:
+        CSharp: KarteAttributes.Title
+        VB: KarteAttributes.Title
+      qualifiedName:
+        CSharp: Io.Karte.KarteAttributes.Title
+        VB: Io.Karte.KarteAttributes.Title
+      type: Property
+      assemblies:
+      - cs.temp.dll
+      namespace: Io.Karte
+      source:
+        id: Title
+        path: ''
+        startLine: 1306
+      summary: "\nプッシュ通知のタイトルを返します。これはプッシュ通知アクションに指定した静的変数のtitleに対応しています。\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public string Title { get; }
+          VB: Public ReadOnly Property Title As String
+        parameters: []
+        return:
+          type: System.String
+          description: "\nプッシュ通知のタイトルを返します。\n"
+      overload: Io.Karte.KarteAttributes.Title*
+      modifiers:
+        CSharp:
+        - public
+        - get
+        VB:
+        - Public
+        - ReadOnly
+  - id: Io.Karte.InAppMessaging
+    commentId: T:Io.Karte.InAppMessaging
+    language: CSharp
+    name:
+      CSharp: InAppMessaging
+      VB: InAppMessaging
+    nameWithType:
+      CSharp: InAppMessaging
+      VB: InAppMessaging
+    qualifiedName:
+      CSharp: Io.Karte.InAppMessaging
+      VB: Io.Karte.InAppMessaging
+    type: Class
+    assemblies:
+    - cs.temp.dll
+    namespace: Io.Karte
+    source:
+      id: InAppMessaging
+      path: ''
+      startLine: 1321
+    summary: "\nInAppMessagingManagerクラスは、アプリ内メッセージに関連する機能を提供します。\n"
+    example: []
+    syntax:
+      content:
+        CSharp: public class InAppMessaging
+        VB: Public Class InAppMessaging
+    inheritance:
+    - System.Object
+    modifiers:
+      CSharp:
+      - public
+      - class
+      VB:
+      - Public
+      - Class
+    items:
+    - id: Io.Karte.InAppMessaging.OnOpenUrl
+      commentId: P:Io.Karte.InAppMessaging.OnOpenUrl
+      language: CSharp
+      name:
+        CSharp: OnOpenUrl
+        VB: OnOpenUrl
+      nameWithType:
+        CSharp: InAppMessaging.OnOpenUrl
+        VB: InAppMessaging.OnOpenUrl
+      qualifiedName:
+        CSharp: Io.Karte.InAppMessaging.OnOpenUrl
+        VB: Io.Karte.InAppMessaging.OnOpenUrl
+      type: Property
+      assemblies:
+      - cs.temp.dll
+      namespace: Io.Karte
+      source:
+        id: OnOpenUrl
+        path: ''
+        startLine: 1346
+      syntax:
+        content:
+          CSharp: public static InAppMessaging.HandleOpenUrl OnOpenUrl { get; set; }
+          VB: Public Shared Property OnOpenUrl As InAppMessaging.HandleOpenUrl
+        parameters: []
+        return:
+          type: Io.Karte.InAppMessaging.HandleOpenUrl
+      overload: Io.Karte.InAppMessaging.OnOpenUrl*
+      modifiers:
+        CSharp:
+        - public
+        - static
+        - get
+        - set
+        VB:
+        - Public
+        - Shared
+    - id: Io.Karte.InAppMessaging.OnOpenUrlWithScene
+      commentId: P:Io.Karte.InAppMessaging.OnOpenUrlWithScene
+      language: CSharp
+      name:
+        CSharp: OnOpenUrlWithScene
+        VB: OnOpenUrlWithScene
+      nameWithType:
+        CSharp: InAppMessaging.OnOpenUrlWithScene
+        VB: InAppMessaging.OnOpenUrlWithScene
+      qualifiedName:
+        CSharp: Io.Karte.InAppMessaging.OnOpenUrlWithScene
+        VB: Io.Karte.InAppMessaging.OnOpenUrlWithScene
+      type: Property
+      assemblies:
+      - cs.temp.dll
+      namespace: Io.Karte
+      source:
+        id: OnOpenUrlWithScene
+        path: ''
+        startLine: 1359
+      syntax:
+        content:
+          CSharp: public static InAppMessaging.HandleOpenUrlWithScene OnOpenUrlWithScene { get; set; }
+          VB: Public Shared Property OnOpenUrlWithScene As InAppMessaging.HandleOpenUrlWithScene
+        parameters: []
+        return:
+          type: Io.Karte.InAppMessaging.HandleOpenUrlWithScene
+      overload: Io.Karte.InAppMessaging.OnOpenUrlWithScene*
+      modifiers:
+        CSharp:
+        - public
+        - static
+        - get
+        - set
+        VB:
+        - Public
+        - Shared
+    - id: Io.Karte.InAppMessaging.InvokeOpenUrlHandler(System.String)
+      commentId: M:Io.Karte.InAppMessaging.InvokeOpenUrlHandler(System.String)
+      language: CSharp
+      name:
+        CSharp: InvokeOpenUrlHandler(String)
+        VB: InvokeOpenUrlHandler(String)
+      nameWithType:
+        CSharp: InAppMessaging.InvokeOpenUrlHandler(String)
+        VB: InAppMessaging.InvokeOpenUrlHandler(String)
+      qualifiedName:
+        CSharp: Io.Karte.InAppMessaging.InvokeOpenUrlHandler(System.String)
+        VB: Io.Karte.InAppMessaging.InvokeOpenUrlHandler(System.String)
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: Io.Karte
+      source:
+        id: InvokeOpenUrlHandler
+        path: ''
+        startLine: 1401
+      syntax:
+        content:
+          CSharp: public static void InvokeOpenUrlHandler(string url)
+          VB: Public Shared Sub InvokeOpenUrlHandler(url As String)
+        parameters:
+        - id: url
+          type: System.String
+      overload: Io.Karte.InAppMessaging.InvokeOpenUrlHandler*
+      modifiers:
+        CSharp:
+        - public
+        - static
+        VB:
+        - Public
+        - Shared
+    - id: Io.Karte.InAppMessaging.InvokeOpenUrlWithSceneHandler(System.String,System.String)
+      commentId: M:Io.Karte.InAppMessaging.InvokeOpenUrlWithSceneHandler(System.String,System.String)
+      language: CSharp
+      name:
+        CSharp: InvokeOpenUrlWithSceneHandler(String, String)
+        VB: InvokeOpenUrlWithSceneHandler(String, String)
+      nameWithType:
+        CSharp: InAppMessaging.InvokeOpenUrlWithSceneHandler(String, String)
+        VB: InAppMessaging.InvokeOpenUrlWithSceneHandler(String, String)
+      qualifiedName:
+        CSharp: Io.Karte.InAppMessaging.InvokeOpenUrlWithSceneHandler(System.String, System.String)
+        VB: Io.Karte.InAppMessaging.InvokeOpenUrlWithSceneHandler(System.String, System.String)
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: Io.Karte
+      source:
+        id: InvokeOpenUrlWithSceneHandler
+        path: ''
+        startLine: 1407
+      syntax:
+        content:
+          CSharp: public static void InvokeOpenUrlWithSceneHandler(string url, string sceneIdentifier)
+          VB: Public Shared Sub InvokeOpenUrlWithSceneHandler(url As String, sceneIdentifier As String)
+        parameters:
+        - id: url
+          type: System.String
+        - id: sceneIdentifier
+          type: System.String
+      overload: Io.Karte.InAppMessaging.InvokeOpenUrlWithSceneHandler*
+      modifiers:
+        CSharp:
+        - public
+        - static
+        VB:
+        - Public
+        - Shared
+    - id: Io.Karte.InAppMessaging.dismiss
+      commentId: M:Io.Karte.InAppMessaging.dismiss
+      language: CSharp
+      name:
+        CSharp: dismiss()
+        VB: dismiss()
+      nameWithType:
+        CSharp: InAppMessaging.dismiss()
+        VB: InAppMessaging.dismiss()
+      qualifiedName:
+        CSharp: Io.Karte.InAppMessaging.dismiss()
+        VB: Io.Karte.InAppMessaging.dismiss()
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: Io.Karte
+      source:
+        id: dismiss
+        path: ''
+        startLine: 1416
+      summary: "\n表示中のアプリ内メッセージをリセットします。\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public static void dismiss()
+          VB: Public Shared Sub dismiss
+      overload: Io.Karte.InAppMessaging.dismiss*
+      modifiers:
+        CSharp:
+        - public
+        - static
+        VB:
+        - Public
+        - Shared
+    - id: Io.Karte.InAppMessaging.isPresenting
+      commentId: P:Io.Karte.InAppMessaging.isPresenting
+      language: CSharp
+      name:
+        CSharp: isPresenting
+        VB: isPresenting
+      nameWithType:
+        CSharp: InAppMessaging.isPresenting
+        VB: InAppMessaging.isPresenting
+      qualifiedName:
+        CSharp: Io.Karte.InAppMessaging.isPresenting
+        VB: Io.Karte.InAppMessaging.isPresenting
+      type: Property
+      assemblies:
+      - cs.temp.dll
+      namespace: Io.Karte
+      source:
+        id: isPresenting
+        path: ''
+        startLine: 1437
+      summary: "\n接客が表示中であるか判定します。\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public static bool isPresenting { get; }
+          VB: Public Shared ReadOnly Property isPresenting As Boolean
+        parameters: []
+        return:
+          type: System.Boolean
+          description: "\n判定結果を返します。アプリ内メッセージを表示中の場合はtrue、そうでない場合はfalseを返します。\n"
+      overload: Io.Karte.InAppMessaging.isPresenting*
+      modifiers:
+        CSharp:
+        - public
+        - static
+        - get
+        VB:
+        - Public
+        - Shared
+        - ReadOnly
+    - id: Io.Karte.InAppMessaging.suppress
+      commentId: M:Io.Karte.InAppMessaging.suppress
+      language: CSharp
+      name:
+        CSharp: suppress()
+        VB: suppress()
+      nameWithType:
+        CSharp: InAppMessaging.suppress()
+        VB: InAppMessaging.suppress()
+      qualifiedName:
+        CSharp: Io.Karte.InAppMessaging.suppress()
+        VB: Io.Karte.InAppMessaging.suppress()
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: Io.Karte
+      source:
+        id: suppress
+        path: ''
+        startLine: 1453
+      summary: "\nアプリ内メッセージの表示を抑制します。\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public static void suppress()
+          VB: Public Shared Sub suppress
+      overload: Io.Karte.InAppMessaging.suppress*
+      modifiers:
+        CSharp:
+        - public
+        - static
+        VB:
+        - Public
+        - Shared
+    - id: Io.Karte.InAppMessaging.unsuppress
+      commentId: M:Io.Karte.InAppMessaging.unsuppress
+      language: CSharp
+      name:
+        CSharp: unsuppress()
+        VB: unsuppress()
+      nameWithType:
+        CSharp: InAppMessaging.unsuppress()
+        VB: InAppMessaging.unsuppress()
+      qualifiedName:
+        CSharp: Io.Karte.InAppMessaging.unsuppress()
+        VB: Io.Karte.InAppMessaging.unsuppress()
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: Io.Karte
+      source:
+        id: unsuppress
+        path: ''
+        startLine: 1464
+      summary: "\nアプリ内メッセージの表示抑制を解除します。\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public static void unsuppress()
+          VB: Public Shared Sub unsuppress
+      overload: Io.Karte.InAppMessaging.unsuppress*
+      modifiers:
+        CSharp:
+        - public
+        - static
+        VB:
+        - Public
+        - Shared
+  - id: Io.Karte.InAppMessaging.HandleOpenUrl
+    commentId: T:Io.Karte.InAppMessaging.HandleOpenUrl
+    language: CSharp
+    name:
+      CSharp: InAppMessaging.HandleOpenUrl
+      VB: InAppMessaging.HandleOpenUrl
+    nameWithType:
+      CSharp: InAppMessaging.HandleOpenUrl
+      VB: InAppMessaging.HandleOpenUrl
+    qualifiedName:
+      CSharp: Io.Karte.InAppMessaging.HandleOpenUrl
+      VB: Io.Karte.InAppMessaging.HandleOpenUrl
+    type: Delegate
+    assemblies:
+    - cs.temp.dll
+    namespace: Io.Karte
+    source:
+      id: HandleOpenUrl
+      path: ''
+      startLine: 1342
+    syntax:
+      content:
+        CSharp: public delegate void HandleOpenUrl(string url);
+        VB: Public Delegate Sub HandleOpenUrl(url As String)
+      parameters:
+      - id: url
+        type: System.String
+    modifiers:
+      CSharp:
+      - public
+      - delegate
+      VB:
+      - Public
+      - Delegate
+    items: []
+  - id: Io.Karte.InAppMessaging.HandleOpenUrlWithScene
+    commentId: T:Io.Karte.InAppMessaging.HandleOpenUrlWithScene
+    language: CSharp
+    name:
+      CSharp: InAppMessaging.HandleOpenUrlWithScene
+      VB: InAppMessaging.HandleOpenUrlWithScene
+    nameWithType:
+      CSharp: InAppMessaging.HandleOpenUrlWithScene
+      VB: InAppMessaging.HandleOpenUrlWithScene
+    qualifiedName:
+      CSharp: Io.Karte.InAppMessaging.HandleOpenUrlWithScene
+      VB: Io.Karte.InAppMessaging.HandleOpenUrlWithScene
+    type: Delegate
+    assemblies:
+    - cs.temp.dll
+    namespace: Io.Karte
+    source:
+      id: HandleOpenUrlWithScene
+      path: ''
+      startLine: 1343
+    syntax:
+      content:
+        CSharp: public delegate void HandleOpenUrlWithScene(string url, string sceneIdentifier);
+        VB: Public Delegate Sub HandleOpenUrlWithScene(url As String, sceneIdentifier As String)
+      parameters:
+      - id: url
+        type: System.String
+      - id: sceneIdentifier
+        type: System.String
+    modifiers:
+      CSharp:
+      - public
+      - delegate
+      VB:
+      - Public
+      - Delegate
+    items: []
+  - id: Io.Karte.Variable
+    commentId: T:Io.Karte.Variable
+    language: CSharp
+    name:
+      CSharp: Variable
+      VB: Variable
+    nameWithType:
+      CSharp: Variable
+      VB: Variable
+    qualifiedName:
+      CSharp: Io.Karte.Variable
+      VB: Io.Karte.Variable
+    type: Class
+    assemblies:
+    - cs.temp.dll
+    namespace: Io.Karte
+    source:
+      id: Variable
+      path: ''
+      startLine: 1491
+    summary: "\n<p>Variableクラスは、設定値配信に関連する機能で、設定値と配信元の接客サービスの情報を保持する機能を提供します。</p>\n<p>Variablesクラスを経由して初期化されるため、個別で初期化して使用することはありません。</p>\n"
+    example: []
+    syntax:
+      content:
+        CSharp: public class Variable
+        VB: Public Class Variable
+    inheritance:
+    - System.Object
+    modifiers:
+      CSharp:
+      - public
+      - class
+      VB:
+      - Public
+      - Class
+    items:
+    - id: Io.Karte.Variable.GetString(System.String)
+      commentId: M:Io.Karte.Variable.GetString(System.String)
+      language: CSharp
+      name:
+        CSharp: GetString(String)
+        VB: GetString(String)
+      nameWithType:
+        CSharp: Variable.GetString(String)
+        VB: Variable.GetString(String)
+      qualifiedName:
+        CSharp: Io.Karte.Variable.GetString(System.String)
+        VB: Io.Karte.Variable.GetString(System.String)
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: Io.Karte
+      source:
+        id: GetString
+        path: ''
+        startLine: 1527
+      summary: "\n<p>設定値を文字列値として返します。</p>\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public string GetString(string defaultValue)
+          VB: Public Function GetString(defaultValue As String) As String
+        parameters:
+        - id: defaultValue
+          type: System.String
+          description: 設定値が未設定の場合に利用する値
+        return:
+          type: System.String
+          description: "\n<p>設定値を文字列値として返します。</p>\n<p>接客サービス側で設定値が未設定の場合は、引数として指定したデフォルト値を返します。</p>\n"
+      overload: Io.Karte.Variable.GetString*
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+    - id: Io.Karte.Variable.GetInt(System.Int32)
+      commentId: M:Io.Karte.Variable.GetInt(System.Int32)
+      language: CSharp
+      name:
+        CSharp: GetInt(Int32)
+        VB: GetInt(Int32)
+      nameWithType:
+        CSharp: Variable.GetInt(Int32)
+        VB: Variable.GetInt(Int32)
+      qualifiedName:
+        CSharp: Io.Karte.Variable.GetInt(System.Int32)
+        VB: Io.Karte.Variable.GetInt(System.Int32)
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: Io.Karte
+      source:
+        id: GetInt
+        path: ''
+        startLine: 1553
+      summary: "\n<p>設定値を整数値として返します。</p>\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public int GetInt(int defaultValue)
+          VB: Public Function GetInt(defaultValue As Integer) As Integer
+        parameters:
+        - id: defaultValue
+          type: System.Int32
+          description: 設定値が未設定の場合に利用する値
+        return:
+          type: System.Int32
+          description: "\n<p>設定値を整数値として返します。</p>\n<p>値が浮動小数点数の場合、浮動小数点以下は切り捨てられます。</p>\n<p>なお以下の場合は、デフォルト値を返します。</p>\n<p>\n<ul><li>接客サービス側で設定値が未設定</li><li>設定値が数値として扱えない</li></ul>\n</p>\n"
+      overload: Io.Karte.Variable.GetInt*
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+    - id: Io.Karte.Variable.GetDouble(System.Double)
+      commentId: M:Io.Karte.Variable.GetDouble(System.Double)
+      language: CSharp
+      name:
+        CSharp: GetDouble(Double)
+        VB: GetDouble(Double)
+      nameWithType:
+        CSharp: Variable.GetDouble(Double)
+        VB: Variable.GetDouble(Double)
+      qualifiedName:
+        CSharp: Io.Karte.Variable.GetDouble(System.Double)
+        VB: Io.Karte.Variable.GetDouble(System.Double)
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: Io.Karte
+      source:
+        id: GetDouble
+        path: ''
+        startLine: 1577
+      summary: "\n<p>設定値を浮動小数点数として返します。</p>\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public double GetDouble(double defaultValue)
+          VB: Public Function GetDouble(defaultValue As Double) As Double
+        parameters:
+        - id: defaultValue
+          type: System.Double
+          description: 設定値が未設定の場合に利用する値
+        return:
+          type: System.Double
+          description: "\n<p>設定値を浮動小数点値として返します。</p>\n<p>なお以下の場合は、デフォルト値を返します。</p>\n<p>\n<ul><li>接客サービス側で設定値が未設定</li><li>設定値が数値として扱えない</li></ul>\n</p>\n"
+      overload: Io.Karte.Variable.GetDouble*
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+    - id: Io.Karte.Variable.GetBool(System.Boolean)
+      commentId: M:Io.Karte.Variable.GetBool(System.Boolean)
+      language: CSharp
+      name:
+        CSharp: GetBool(Boolean)
+        VB: GetBool(Boolean)
+      nameWithType:
+        CSharp: Variable.GetBool(Boolean)
+        VB: Variable.GetBool(Boolean)
+      qualifiedName:
+        CSharp: Io.Karte.Variable.GetBool(System.Boolean)
+        VB: Io.Karte.Variable.GetBool(System.Boolean)
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: Io.Karte
+      source:
+        id: GetBool
+        path: ''
+        startLine: 1600
+      summary: "\n<p>設定値を真偽値として返します。</p>\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public bool GetBool(bool defaultValue)
+          VB: Public Function GetBool(defaultValue As Boolean) As Boolean
+        parameters:
+        - id: defaultValue
+          type: System.Boolean
+          description: 設定値が未設定の場合に利用する値
+        return:
+          type: System.Boolean
+          description: "\n<p>設定値を真偽値として返します。</p>\n<p>なお以下の場合は、デフォルト値を返します。</p>\n<p>\n<ul><li>接客サービス側で設定値が未設定</li></ul>\n</p>\n"
+      overload: Io.Karte.Variable.GetBool*
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+    - id: Io.Karte.Variable.GetJsonArray(System.Object[])
+      commentId: M:Io.Karte.Variable.GetJsonArray(System.Object[])
+      language: CSharp
+      name:
+        CSharp: GetJsonArray(Object[])
+        VB: GetJsonArray(Object())
+      nameWithType:
+        CSharp: Variable.GetJsonArray(Object[])
+        VB: Variable.GetJsonArray(Object())
+      qualifiedName:
+        CSharp: Io.Karte.Variable.GetJsonArray(System.Object[])
+        VB: Io.Karte.Variable.GetJsonArray(System.Object())
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: Io.Karte
+      source:
+        id: GetJsonArray
+        path: ''
+        startLine: 1625
+      summary: "\n<p>設定値をobjectの配列として返します。</p>\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public object[] GetJsonArray(object[] defaultValue)
+          VB: Public Function GetJsonArray(defaultValue As Object()) As Object()
+        parameters:
+        - id: defaultValue
+          type: System.Object[]
+          description: 設定値が未設定の場合に利用する値
+        return:
+          type: System.Object[]
+          description: "\n<p>設定値をobjectの配列として返します。</p>\n<p>なお以下の場合は、デフォルト値を返します。</p>\n<p>\n<ul><li>接客サービス側で設定値が未設定</li><li>設定値がobjectの配列として扱えない</li></ul>\n</p>\n"
+      overload: Io.Karte.Variable.GetJsonArray*
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+    - id: Io.Karte.Variable.GetJsonObject(JObject)
+      commentId: M:Io.Karte.Variable.GetJsonObject(JObject)
+      language: CSharp
+      name:
+        CSharp: GetJsonObject(JObject)
+        VB: GetJsonObject(JObject)
+      nameWithType:
+        CSharp: Variable.GetJsonObject(JObject)
+        VB: Variable.GetJsonObject(JObject)
+      qualifiedName:
+        CSharp: Io.Karte.Variable.GetJsonObject(JObject)
+        VB: Io.Karte.Variable.GetJsonObject(JObject)
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: Io.Karte
+      source:
+        id: GetJsonObject
+        path: ''
+        startLine: 1659
+      summary: "\n設定値をJObject値として返します。\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public JObject GetJsonObject(JObject defaultValue)
+          VB: Public Function GetJsonObject(defaultValue As JObject) As JObject
+        parameters:
+        - id: defaultValue
+          type: JObject
+          description: ''
+        return:
+          type: JObject
+          description: "\n<p>設定値をJObject値として返します。</p>\n<p>なお以下の場合は、デフォルト値を返します。</p>\n<p>\n<ul><li>接客サービス側で設定値が未設定</li><li>設定値がJObject値として扱えない</li></ul>\n</p>\n"
+      overload: Io.Karte.Variable.GetJsonObject*
+      modifiers:
+        CSharp:
+        - public
+        VB:
+        - Public
+  - id: Io.Karte.RemoteNotificationHandler
+    commentId: T:Io.Karte.RemoteNotificationHandler
+    language: CSharp
+    name:
+      CSharp: RemoteNotificationHandler
+      VB: RemoteNotificationHandler
+    nameWithType:
+      CSharp: RemoteNotificationHandler
+      VB: RemoteNotificationHandler
+    qualifiedName:
+      CSharp: Io.Karte.RemoteNotificationHandler
+      VB: Io.Karte.RemoteNotificationHandler
+    type: Class
+    assemblies:
+    - cs.temp.dll
+    namespace: Io.Karte
+    source:
+      id: RemoteNotificationHandler
+      path: ''
+      startLine: 1693
+    summary: "\nRemoteNotificationHandlerクラスは、KARTEから送信された通知メッセージを処理する機能を提供します。\n"
+    example: []
+    syntax:
+      content:
+        CSharp: public class RemoteNotificationHandler
+        VB: Public Class RemoteNotificationHandler
+    inheritance:
+    - System.Object
+    modifiers:
+      CSharp:
+      - public
+      - class
+      VB:
+      - Public
+      - Class
+    items:
+    - id: Io.Karte.RemoteNotificationHandler.HandleRemoteNotification(IDictionary{System.String,System.String})
+      commentId: M:Io.Karte.RemoteNotificationHandler.HandleRemoteNotification(IDictionary{System.String,System.String})
+      language: CSharp
+      name:
+        CSharp: HandleRemoteNotification(IDictionary<String, String>)
+        VB: HandleRemoteNotification(IDictionary(Of String, String))
+      nameWithType:
+        CSharp: RemoteNotificationHandler.HandleRemoteNotification(IDictionary<String, String>)
+        VB: RemoteNotificationHandler.HandleRemoteNotification(IDictionary(Of String, String))
+      qualifiedName:
+        CSharp: Io.Karte.RemoteNotificationHandler.HandleRemoteNotification(IDictionary<System.String, System.String>)
+        VB: Io.Karte.RemoteNotificationHandler.HandleRemoteNotification(IDictionary(Of System.String, System.String))
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: Io.Karte
+      source:
+        id: HandleRemoteNotification
+        path: ''
+        startLine: 1713
+      summary: "\nKARTE経由で送信された通知メッセージを処理します。処理内容はプラットフォームによって異なります。\n<p>iOS: 通知メッセージに含まれるディープリンクURLを開きます。</p>\n<p>Android: 通知メッセージから、通知を作成します。</p>\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public static bool HandleRemoteNotification(IDictionary<string, string> userInfo)
+          VB: Public Shared Function HandleRemoteNotification(userInfo As IDictionary(Of String, String)) As Boolean
+        parameters:
+        - id: userInfo
+          type: IDictionary{System.String,System.String}
+          description: "\n通知メッセージ\n"
+        return:
+          type: System.Boolean
+          description: "\n<p>処理結果を返します。</p>\n<p>処理できた場合は true、できなかった場合は false を返します。</p>\n"
+      overload: Io.Karte.RemoteNotificationHandler.HandleRemoteNotification*
+      modifiers:
+        CSharp:
+        - public
+        - static
+        VB:
+        - Public
+        - Shared
+    - id: Io.Karte.RemoteNotificationHandler.RetrieveURLFromUserInfo(IDictionary{System.String,System.String})
+      commentId: M:Io.Karte.RemoteNotificationHandler.RetrieveURLFromUserInfo(IDictionary{System.String,System.String})
+      language: CSharp
+      name:
+        CSharp: RetrieveURLFromUserInfo(IDictionary<String, String>)
+        VB: RetrieveURLFromUserInfo(IDictionary(Of String, String))
+      nameWithType:
+        CSharp: RemoteNotificationHandler.RetrieveURLFromUserInfo(IDictionary<String, String>)
+        VB: RemoteNotificationHandler.RetrieveURLFromUserInfo(IDictionary(Of String, String))
+      qualifiedName:
+        CSharp: Io.Karte.RemoteNotificationHandler.RetrieveURLFromUserInfo(IDictionary<System.String, System.String>)
+        VB: Io.Karte.RemoteNotificationHandler.RetrieveURLFromUserInfo(IDictionary(Of System.String, System.String))
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: Io.Karte
+      source:
+        id: RetrieveURLFromUserInfo
+        path: ''
+        startLine: 1739
+      summary: "\nKARTE経由で送信された通知メッセージに含まれるURLを返します。\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public static string RetrieveURLFromUserInfo(IDictionary<string, string> userInfo)
+          VB: Public Shared Function RetrieveURLFromUserInfo(userInfo As IDictionary(Of String, String)) As String
+        parameters:
+        - id: userInfo
+          type: IDictionary{System.String,System.String}
+          description: "\n通知メッセージ\n"
+        return:
+          type: System.String
+          description: "\nディープリンクURLを返します。\n"
+      overload: Io.Karte.RemoteNotificationHandler.RetrieveURLFromUserInfo*
+      modifiers:
+        CSharp:
+        - public
+        - static
+        VB:
+        - Public
+        - Shared
+    - id: Io.Karte.RemoteNotificationHandler.ExtractKarteAttributes(IDictionary{System.String,System.String})
+      commentId: M:Io.Karte.RemoteNotificationHandler.ExtractKarteAttributes(IDictionary{System.String,System.String})
+      language: CSharp
+      name:
+        CSharp: ExtractKarteAttributes(IDictionary<String, String>)
+        VB: ExtractKarteAttributes(IDictionary(Of String, String))
+      nameWithType:
+        CSharp: RemoteNotificationHandler.ExtractKarteAttributes(IDictionary<String, String>)
+        VB: RemoteNotificationHandler.ExtractKarteAttributes(IDictionary(Of String, String))
+      qualifiedName:
+        CSharp: Io.Karte.RemoteNotificationHandler.ExtractKarteAttributes(IDictionary<System.String, System.String>)
+        VB: Io.Karte.RemoteNotificationHandler.ExtractKarteAttributes(IDictionary(Of System.String, System.String))
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: Io.Karte
+      source:
+        id: ExtractKarteAttributes
+        path: ''
+        startLine: 1767
+      summary: "\n通知メッセージからSDKが自動で処理するデータを取り出し、KarteAttribtuesインスタンスを返します。\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public static KarteAttributes ExtractKarteAttributes(IDictionary<string, string> userInfo)
+          VB: Public Shared Function ExtractKarteAttributes(userInfo As IDictionary(Of String, String)) As KarteAttributes
+        parameters:
+        - id: userInfo
+          type: IDictionary{System.String,System.String}
+          description: "\n通知メッセージ\n"
+        return:
+          type: Io.Karte.KarteAttributes
+          description: "\nKarteAttributesインスタンスを返します。\n"
+      overload: Io.Karte.RemoteNotificationHandler.ExtractKarteAttributes*
+      modifiers:
+        CSharp:
+        - public
+        - static
+        VB:
+        - Public
+        - Shared
+  - id: Io.Karte.App
+    commentId: T:Io.Karte.App
+    language: CSharp
+    name:
+      CSharp: App
+      VB: App
+    nameWithType:
+      CSharp: App
+      VB: App
+    qualifiedName:
+      CSharp: Io.Karte.App
+      VB: Io.Karte.App
+    type: Class
+    assemblies:
+    - cs.temp.dll
+    namespace: Io.Karte
+    source:
+      id: App
+      path: ''
+      startLine: 1874
+    summary: "\n<p>SDK全体に影響のある機能を扱うクラスです。</p>\n"
+    example: []
+    syntax:
+      content:
+        CSharp: public class App
+        VB: Public Class App
+    inheritance:
+    - System.Object
+    modifiers:
+      CSharp:
+      - public
+      - class
+      VB:
+      - Public
+      - Class
+    items:
+    - id: Io.Karte.App.GetVisitorId
+      commentId: M:Io.Karte.App.GetVisitorId
+      language: CSharp
+      name:
+        CSharp: GetVisitorId()
+        VB: GetVisitorId()
+      nameWithType:
+        CSharp: App.GetVisitorId()
+        VB: App.GetVisitorId()
+      qualifiedName:
+        CSharp: Io.Karte.App.GetVisitorId()
+        VB: Io.Karte.App.GetVisitorId()
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: Io.Karte
+      source:
+        id: GetVisitorId
+        path: ''
+        startLine: 1898
+      summary: "\nビジターIDを返します。\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public static string GetVisitorId()
+          VB: Public Shared Function GetVisitorId As String
+        return:
+          type: System.String
+          description: ビジターIDを返します。
+      overload: Io.Karte.App.GetVisitorId*
+      modifiers:
+        CSharp:
+        - public
+        - static
+        VB:
+        - Public
+        - Shared
+    - id: Io.Karte.App.RegisterFCMToken(System.String)
+      commentId: M:Io.Karte.App.RegisterFCMToken(System.String)
+      language: CSharp
+      name:
+        CSharp: RegisterFCMToken(String)
+        VB: RegisterFCMToken(String)
+      nameWithType:
+        CSharp: App.RegisterFCMToken(String)
+        VB: App.RegisterFCMToken(String)
+      qualifiedName:
+        CSharp: Io.Karte.App.RegisterFCMToken(System.String)
+        VB: Io.Karte.App.RegisterFCMToken(System.String)
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: Io.Karte
+      source:
+        id: RegisterFCMToken
+        path: ''
+        startLine: 1914
+      summary: "\n<p>FCMトークンをKARTEに登録します。</p>\n<p>なお登録時に plugin_native_app_identify イベントを発行します。</p>\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public static void RegisterFCMToken(string token)
+          VB: Public Shared Sub RegisterFCMToken(token As String)
+        parameters:
+        - id: token
+          type: System.String
+          description: 'FCMトークン '
+      overload: Io.Karte.App.RegisterFCMToken*
+      modifiers:
+        CSharp:
+        - public
+        - static
+        VB:
+        - Public
+        - Shared
+    - id: Io.Karte.App.RenewVisitorId
+      commentId: M:Io.Karte.App.RenewVisitorId
+      language: CSharp
+      name:
+        CSharp: RenewVisitorId()
+        VB: RenewVisitorId()
+      nameWithType:
+        CSharp: App.RenewVisitorId()
+        VB: App.RenewVisitorId()
+      qualifiedName:
+        CSharp: Io.Karte.App.RenewVisitorId()
+        VB: Io.Karte.App.RenewVisitorId()
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: Io.Karte
+      source:
+        id: RenewVisitorId
+        path: ''
+        startLine: 1934
+      summary: "\n<p>ビジターIDの再生成処理を行います。</p>\n<p>なお内部では、以下の処理が行われます。\n<ul><li>プッシュ通知の配信許可フラグ (plugin_native_app_identity.subscribe) を 非許可 (false) に変更</li><li>端末に保存されている設定値の削除</li><li>visitor_id の再発行</li><li>新たに生成された visitor に対してFCMトークンを紐付け</li></ul>\n</p>\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public static void RenewVisitorId()
+          VB: Public Shared Sub RenewVisitorId
+      overload: Io.Karte.App.RenewVisitorId*
+      modifiers:
+        CSharp:
+        - public
+        - static
+        VB:
+        - Public
+        - Shared
+    - id: Io.Karte.App.OptOut
+      commentId: M:Io.Karte.App.OptOut
+      language: CSharp
+      name:
+        CSharp: OptOut()
+        VB: OptOut()
+      nameWithType:
+        CSharp: App.OptOut()
+        VB: App.OptOut()
+      qualifiedName:
+        CSharp: Io.Karte.App.OptOut()
+        VB: Io.Karte.App.OptOut()
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: Io.Karte
+      source:
+        id: OptOut
+        path: ''
+        startLine: 1948
+      summary: "\n<p>オプトアウト処理を行います。</p>\n<p>オプトアウト実行後、計測をはじめとしたSDKの内部処理は全て無効化されます。</p>\n<p>optInを実行することでオプトアウト状態を解除できます。</p>\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public static void OptOut()
+          VB: Public Shared Sub OptOut
+      overload: Io.Karte.App.OptOut*
+      modifiers:
+        CSharp:
+        - public
+        - static
+        VB:
+        - Public
+        - Shared
+    - id: Io.Karte.App.OptIn
+      commentId: M:Io.Karte.App.OptIn
+      language: CSharp
+      name:
+        CSharp: OptIn()
+        VB: OptIn()
+      nameWithType:
+        CSharp: App.OptIn()
+        VB: App.OptIn()
+      qualifiedName:
+        CSharp: Io.Karte.App.OptIn()
+        VB: Io.Karte.App.OptIn()
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: Io.Karte
+      source:
+        id: OptIn
+        path: ''
+        startLine: 1960
+      summary: "\nオプトアウト状態を解除します。\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public static void OptIn()
+          VB: Public Shared Sub OptIn
+      overload: Io.Karte.App.OptIn*
+      modifiers:
+        CSharp:
+        - public
+        - static
+        VB:
+        - Public
+        - Shared
+    - id: Io.Karte.App.OpenUrl(System.String)
+      commentId: M:Io.Karte.App.OpenUrl(System.String)
+      language: CSharp
+      name:
+        CSharp: OpenUrl(String)
+        VB: OpenUrl(String)
+      nameWithType:
+        CSharp: App.OpenUrl(String)
+        VB: App.OpenUrl(String)
+      qualifiedName:
+        CSharp: Io.Karte.App.OpenUrl(System.String)
+        VB: Io.Karte.App.OpenUrl(System.String)
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: Io.Karte
+      source:
+        id: OpenUrl
+        path: ''
+        startLine: 1972
+      summary: "\nKarteでURLを処理します。\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public static bool OpenUrl(string url)
+          VB: Public Shared Function OpenUrl(url As String) As Boolean
+        parameters:
+        - id: url
+          type: System.String
+        return:
+          type: System.Boolean
+      overload: Io.Karte.App.OpenUrl*
+      modifiers:
+        CSharp:
+        - public
+        - static
+        VB:
+        - Public
+        - Shared
+  - id: Io.Karte.Tracker
+    commentId: T:Io.Karte.Tracker
+    language: CSharp
+    name:
+      CSharp: Tracker
+      VB: Tracker
+    nameWithType:
+      CSharp: Tracker
+      VB: Tracker
+    qualifiedName:
+      CSharp: Io.Karte.Tracker
+      VB: Io.Karte.Tracker
+    type: Class
+    assemblies:
+    - cs.temp.dll
+    namespace: Io.Karte
+    source:
+      id: Tracker
+      path: ''
+      startLine: 1996
+    summary: "\n<p>Trackerクラスは、主にイベントのトラッキング機能を提供します。</p>\n<p>KARTEにイベントを送信する場合、本クラスが提供する各種トラッキングメソッドを利用して行います。</p>\n"
+    example: []
+    syntax:
+      content:
+        CSharp: public class Tracker
+        VB: Public Class Tracker
+    inheritance:
+    - System.Object
+    modifiers:
+      CSharp:
+      - public
+      - class
+      VB:
+      - Public
+      - Class
+    items:
+    - id: Io.Karte.Tracker.View(System.String)
+      commentId: M:Io.Karte.Tracker.View(System.String)
+      language: CSharp
+      name:
+        CSharp: View(String)
+        VB: View(String)
+      nameWithType:
+        CSharp: Tracker.View(String)
+        VB: Tracker.View(String)
+      qualifiedName:
+        CSharp: Io.Karte.Tracker.View(System.String)
+        VB: Io.Karte.Tracker.View(System.String)
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: Io.Karte
+      source:
+        id: View
+        path: ''
+        startLine: 2022
+      summary: "\nViewイベントを送信します。\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public static void View(string viewName)
+          VB: Public Shared Sub View(viewName As String)
+        parameters:
+        - id: viewName
+          type: System.String
+          description: '画面名 '
+      overload: Io.Karte.Tracker.View*
+      modifiers:
+        CSharp:
+        - public
+        - static
+        VB:
+        - Public
+        - Shared
+    - id: Io.Karte.Tracker.View(System.String,System.String)
+      commentId: M:Io.Karte.Tracker.View(System.String,System.String)
+      language: CSharp
+      name:
+        CSharp: View(String, String)
+        VB: View(String, String)
+      nameWithType:
+        CSharp: Tracker.View(String, String)
+        VB: Tracker.View(String, String)
+      qualifiedName:
+        CSharp: Io.Karte.Tracker.View(System.String, System.String)
+        VB: Io.Karte.Tracker.View(System.String, System.String)
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: Io.Karte
+      source:
+        id: View
+        path: ''
+        startLine: 2036
+      summary: "\nViewイベントを送信します。\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public static void View(string viewName, string title)
+          VB: Public Shared Sub View(viewName As String, title As String)
+        parameters:
+        - id: viewName
+          type: System.String
+          description: '画面名 '
+        - id: title
+          type: System.String
+          description: 画面タイトル
+      overload: Io.Karte.Tracker.View*
+      modifiers:
+        CSharp:
+        - public
+        - static
+        VB:
+        - Public
+        - Shared
+    - id: Io.Karte.Tracker.View(System.String,System.String,JObject)
+      commentId: M:Io.Karte.Tracker.View(System.String,System.String,JObject)
+      language: CSharp
+      name:
+        CSharp: View(String, String, JObject)
+        VB: View(String, String, JObject)
+      nameWithType:
+        CSharp: Tracker.View(String, String, JObject)
+        VB: Tracker.View(String, String, JObject)
+      qualifiedName:
+        CSharp: Io.Karte.Tracker.View(System.String, System.String, JObject)
+        VB: Io.Karte.Tracker.View(System.String, System.String, JObject)
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: Io.Karte
+      source:
+        id: View
+        path: ''
+        startLine: 2051
+      summary: "\nViewイベントを送信します。\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public static void View(string viewName, string title, JObject values)
+          VB: Public Shared Sub View(viewName As String, title As String, values As JObject)
+        parameters:
+        - id: viewName
+          type: System.String
+          description: '画面名 '
+        - id: title
+          type: System.String
+          description: 画面タイトル
+        - id: values
+          type: JObject
+          description: イベントに紐付けるカスタムオブジェクト
+      overload: Io.Karte.Tracker.View*
+      modifiers:
+        CSharp:
+        - public
+        - static
+        VB:
+        - Public
+        - Shared
+    - id: Io.Karte.Tracker.Track(System.String)
+      commentId: M:Io.Karte.Tracker.Track(System.String)
+      language: CSharp
+      name:
+        CSharp: Track(String)
+        VB: Track(String)
+      nameWithType:
+        CSharp: Tracker.Track(String)
+        VB: Tracker.Track(String)
+      qualifiedName:
+        CSharp: Io.Karte.Tracker.Track(System.String)
+        VB: Io.Karte.Tracker.Track(System.String)
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: Io.Karte
+      source:
+        id: Track
+        path: ''
+        startLine: 2065
+      syntax:
+        content:
+          CSharp: public static void Track(string eventName)
+          VB: Public Shared Sub Track(eventName As String)
+        parameters:
+        - id: eventName
+          type: System.String
+      overload: Io.Karte.Tracker.Track*
+      modifiers:
+        CSharp:
+        - public
+        - static
+        VB:
+        - Public
+        - Shared
+    - id: Io.Karte.Tracker.Track(System.String,JObject)
+      commentId: M:Io.Karte.Tracker.Track(System.String,JObject)
+      language: CSharp
+      name:
+        CSharp: Track(String, JObject)
+        VB: Track(String, JObject)
+      nameWithType:
+        CSharp: Tracker.Track(String, JObject)
+        VB: Tracker.Track(String, JObject)
+      qualifiedName:
+        CSharp: Io.Karte.Tracker.Track(System.String, JObject)
+        VB: Io.Karte.Tracker.Track(System.String, JObject)
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: Io.Karte
+      source:
+        id: Track
+        path: ''
+        startLine: 2079
+      summary: "\nイベントを送信します。\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public static void Track(string eventName, JObject values)
+          VB: Public Shared Sub Track(eventName As String, values As JObject)
+        parameters:
+        - id: eventName
+          type: System.String
+          description: イベント名
+        - id: values
+          type: JObject
+          description: イベントに紐付けるカスタムオブジェクト
+      overload: Io.Karte.Tracker.Track*
+      modifiers:
+        CSharp:
+        - public
+        - static
+        VB:
+        - Public
+        - Shared
+    - id: Io.Karte.Tracker.Identify(JObject)
+      commentId: M:Io.Karte.Tracker.Identify(JObject)
+      language: CSharp
+      name:
+        CSharp: Identify(JObject)
+        VB: Identify(JObject)
+      nameWithType:
+        CSharp: Tracker.Identify(JObject)
+        VB: Tracker.Identify(JObject)
+      qualifiedName:
+        CSharp: Io.Karte.Tracker.Identify(JObject)
+        VB: Io.Karte.Tracker.Identify(JObject)
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: Io.Karte
+      source:
+        id: Identify
+        path: ''
+        startLine: 2094
+      summary: "\n<p>Identifyイベント（ユーザー情報）を送信します。</p>\n<p>KARTEではユーザー情報もユーザー情報イベントとして、他のイベントと同じ形式で扱います。</p>\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public static void Identify(JObject values)
+          VB: Public Shared Sub Identify(values As JObject)
+        parameters:
+        - id: values
+          type: JObject
+          description: ユーザーに紐付けるカスタムオブジェクト
+      overload: Io.Karte.Tracker.Identify*
+      modifiers:
+        CSharp:
+        - public
+        - static
+        VB:
+        - Public
+        - Shared
+    - id: Io.Karte.Tracker.Identify(System.String,JObject)
+      commentId: M:Io.Karte.Tracker.Identify(System.String,JObject)
+      language: CSharp
+      name:
+        CSharp: Identify(String, JObject)
+        VB: Identify(String, JObject)
+      nameWithType:
+        CSharp: Tracker.Identify(String, JObject)
+        VB: Tracker.Identify(String, JObject)
+      qualifiedName:
+        CSharp: Io.Karte.Tracker.Identify(System.String, JObject)
+        VB: Io.Karte.Tracker.Identify(System.String, JObject)
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: Io.Karte
+      source:
+        id: Identify
+        path: ''
+        startLine: 2110
+      summary: "\n<p>Identifyイベント（ユーザー情報）を送信します。</p>\n<p>KARTEではユーザー情報もユーザー情報イベントとして、他のイベントと同じ形式で扱います。</p>\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public static void Identify(string userId, JObject values)
+          VB: Public Shared Sub Identify(userId As String, values As JObject)
+        parameters:
+        - id: userId
+          type: System.String
+          description: ユーザーを識別する一意なID
+        - id: values
+          type: JObject
+          description: ユーザーに紐付けるカスタムオブジェクト
+      overload: Io.Karte.Tracker.Identify*
+      modifiers:
+        CSharp:
+        - public
+        - static
+        VB:
+        - Public
+        - Shared
+    - id: Io.Karte.Tracker.Attribute(JObject)
+      commentId: M:Io.Karte.Tracker.Attribute(JObject)
+      language: CSharp
+      name:
+        CSharp: Attribute(JObject)
+        VB: Attribute(JObject)
+      nameWithType:
+        CSharp: Tracker.Attribute(JObject)
+        VB: Tracker.Attribute(JObject)
+      qualifiedName:
+        CSharp: Io.Karte.Tracker.Attribute(JObject)
+        VB: Io.Karte.Tracker.Attribute(JObject)
+      type: Method
+      assemblies:
+      - cs.temp.dll
+      namespace: Io.Karte
+      source:
+        id: Attribute
+        path: ''
+        startLine: 2124
+      summary: "\n<p>Attributeイベント（ユーザー情報）を送信します。</p>\n"
+      example: []
+      syntax:
+        content:
+          CSharp: public static void Attribute(JObject values)
+          VB: Public Shared Sub Attribute(values As JObject)
+        parameters:
+        - id: values
+          type: JObject
+          description: ユーザーに紐付けるカスタムオブジェクト
+      overload: Io.Karte.Tracker.Attribute*
+      modifiers:
+        CSharp:
+        - public
+        - static
+        VB:
+        - Public
+        - Shared
+references:
+  System:
+    name:
+      CSharp:
+      - name: System
+        nameWithType: System
+        qualifiedName: System
+        isExternal: true
+      VB:
+      - name: System
+        nameWithType: System
+        qualifiedName: System
+    isDefinition: true
+    commentId: N:System
+  System.Object:
+    name:
+      CSharp:
+      - id: System.Object
+        name: Object
+        nameWithType: Object
+        qualifiedName: System.Object
+        isExternal: true
+      VB:
+      - id: System.Object
+        name: Object
+        nameWithType: Object
+        qualifiedName: System.Object
+        isExternal: true
+    isDefinition: true
+    parent: System
+    commentId: T:System.Object
+  Io.Karte.Variables.Fetch*:
+    name:
+      CSharp:
+      - id: Io.Karte.Variables.Fetch*
+        name: Fetch
+        nameWithType: Variables.Fetch
+        qualifiedName: Io.Karte.Variables.Fetch
+      VB:
+      - id: Io.Karte.Variables.Fetch*
+        name: Fetch
+        nameWithType: Variables.Fetch
+        qualifiedName: Io.Karte.Variables.Fetch
+    isDefinition: true
+    commentId: Overload:Io.Karte.Variables.Fetch
+  Action`1:
+    name:
+      CSharp:
+      - id: Action`1
+        name: Action
+        nameWithType: Action
+        qualifiedName: Action
+        isExternal: true
+      - name: <
+        nameWithType: <
+        qualifiedName: <
+      - name: ''
+        nameWithType: ''
+        qualifiedName: ''
+      - name: '>'
+        nameWithType: '>'
+        qualifiedName: '>'
+      VB:
+      - id: Action`1
+        name: Action
+        nameWithType: Action
+        qualifiedName: Action
+        isExternal: true
+      - name: '(Of '
+        nameWithType: '(Of '
+        qualifiedName: '(Of '
+      - name: ''
+        nameWithType: ''
+        qualifiedName: ''
+      - name: )
+        nameWithType: )
+        qualifiedName: )
+    isDefinition: true
+    commentId: '!:Action`1'
+  Action{System.Boolean}:
+    name:
+      CSharp:
+      - id: Action`1
+        name: Action
+        nameWithType: Action
+        qualifiedName: Action
+        isExternal: true
+      - name: <
+        nameWithType: <
+        qualifiedName: <
+      - id: System.Boolean
+        name: Boolean
+        nameWithType: Boolean
+        qualifiedName: System.Boolean
+        isExternal: true
+      - name: '>'
+        nameWithType: '>'
+        qualifiedName: '>'
+      VB:
+      - id: Action`1
+        name: Action
+        nameWithType: Action
+        qualifiedName: Action
+        isExternal: true
+      - name: '(Of '
+        nameWithType: '(Of '
+        qualifiedName: '(Of '
+      - id: System.Boolean
+        name: Boolean
+        nameWithType: Boolean
+        qualifiedName: System.Boolean
+        isExternal: true
+      - name: )
+        nameWithType: )
+        qualifiedName: )
+    isDefinition: false
+    definition: Action`1
+    commentId: '!:Action{System.Boolean}'
+  Io.Karte.Variables.FetchWithCompletion*:
+    name:
+      CSharp:
+      - id: Io.Karte.Variables.FetchWithCompletion*
+        name: FetchWithCompletion
+        nameWithType: Variables.FetchWithCompletion
+        qualifiedName: Io.Karte.Variables.FetchWithCompletion
+      VB:
+      - id: Io.Karte.Variables.FetchWithCompletion*
+        name: FetchWithCompletion
+        nameWithType: Variables.FetchWithCompletion
+        qualifiedName: Io.Karte.Variables.FetchWithCompletion
+    isDefinition: true
+    commentId: Overload:Io.Karte.Variables.FetchWithCompletion
+  Io.Karte:
+    name:
+      CSharp:
+      - name: Io.Karte
+        nameWithType: Io.Karte
+        qualifiedName: Io.Karte
+      VB:
+      - name: Io.Karte
+        nameWithType: Io.Karte
+        qualifiedName: Io.Karte
+    isDefinition: true
+    commentId: N:Io.Karte
+  Io.Karte.Variable:
+    name:
+      CSharp:
+      - id: Io.Karte.Variable
+        name: Variable
+        nameWithType: Variable
+        qualifiedName: Io.Karte.Variable
+      VB:
+      - id: Io.Karte.Variable
+        name: Variable
+        nameWithType: Variable
+        qualifiedName: Io.Karte.Variable
+    isDefinition: true
+    parent: Io.Karte
+    commentId: T:Io.Karte.Variable
+  System.String:
+    name:
+      CSharp:
+      - id: System.String
+        name: String
+        nameWithType: String
+        qualifiedName: System.String
+        isExternal: true
+      VB:
+      - id: System.String
+        name: String
+        nameWithType: String
+        qualifiedName: System.String
+        isExternal: true
+    isDefinition: true
+    parent: System
+    commentId: T:System.String
+  Io.Karte.Variables.GetVariable*:
+    name:
+      CSharp:
+      - id: Io.Karte.Variables.GetVariable*
+        name: GetVariable
+        nameWithType: Variables.GetVariable
+        qualifiedName: Io.Karte.Variables.GetVariable
+      VB:
+      - id: Io.Karte.Variables.GetVariable*
+        name: GetVariable
+        nameWithType: Variables.GetVariable
+        qualifiedName: Io.Karte.Variables.GetVariable
+    isDefinition: true
+    commentId: Overload:Io.Karte.Variables.GetVariable
+  Io.Karte.Variable[]:
+    name:
+      CSharp:
+      - id: Io.Karte.Variable
+        name: Variable
+        nameWithType: Variable
+        qualifiedName: Io.Karte.Variable
+      - name: '[]'
+        nameWithType: '[]'
+        qualifiedName: '[]'
+      VB:
+      - id: Io.Karte.Variable
+        name: Variable
+        nameWithType: Variable
+        qualifiedName: Io.Karte.Variable
+      - name: ()
+        nameWithType: ()
+        qualifiedName: ()
+    isDefinition: false
+  Io.Karte.Variables.TrackOpen*:
+    name:
+      CSharp:
+      - id: Io.Karte.Variables.TrackOpen*
+        name: TrackOpen
+        nameWithType: Variables.TrackOpen
+        qualifiedName: Io.Karte.Variables.TrackOpen
+      VB:
+      - id: Io.Karte.Variables.TrackOpen*
+        name: TrackOpen
+        nameWithType: Variables.TrackOpen
+        qualifiedName: Io.Karte.Variables.TrackOpen
+    isDefinition: true
+    commentId: Overload:Io.Karte.Variables.TrackOpen
+  JObject:
+    name:
+      CSharp:
+      - id: JObject
+        name: JObject
+        nameWithType: JObject
+        qualifiedName: JObject
+        isExternal: true
+      VB:
+      - id: JObject
+        name: JObject
+        nameWithType: JObject
+        qualifiedName: JObject
+        isExternal: true
+    isDefinition: true
+  Io.Karte.Variables.TrackClick*:
+    name:
+      CSharp:
+      - id: Io.Karte.Variables.TrackClick*
+        name: TrackClick
+        nameWithType: Variables.TrackClick
+        qualifiedName: Io.Karte.Variables.TrackClick
+      VB:
+      - id: Io.Karte.Variables.TrackClick*
+        name: TrackClick
+        nameWithType: Variables.TrackClick
+        qualifiedName: Io.Karte.Variables.TrackClick
+    isDefinition: true
+    commentId: Overload:Io.Karte.Variables.TrackClick
+  System.Nullable`1:
+    name:
+      CSharp:
+      - id: System.Nullable`1
+        name: Nullable
+        nameWithType: Nullable
+        qualifiedName: System.Nullable
+        isExternal: true
+      - name: <
+        nameWithType: <
+        qualifiedName: <
+      - name: T
+        nameWithType: T
+        qualifiedName: T
+      - name: '>'
+        nameWithType: '>'
+        qualifiedName: '>'
+      VB:
+      - id: System.Nullable`1
+        name: Nullable
+        nameWithType: Nullable
+        qualifiedName: System.Nullable
+        isExternal: true
+      - name: '(Of '
+        nameWithType: '(Of '
+        qualifiedName: '(Of '
+      - name: T
+        nameWithType: T
+        qualifiedName: T
+      - name: )
+        nameWithType: )
+        qualifiedName: )
+    isDefinition: true
+    commentId: T:System.Nullable`1
+  System.Nullable{DateTime}:
+    name:
+      CSharp:
+      - id: System.Nullable`1
+        name: Nullable
+        nameWithType: Nullable
+        qualifiedName: System.Nullable
+        isExternal: true
+      - name: <
+        nameWithType: <
+        qualifiedName: <
+      - id: DateTime
+        name: DateTime
+        nameWithType: DateTime
+        qualifiedName: DateTime
+        isExternal: true
+      - name: '>'
+        nameWithType: '>'
+        qualifiedName: '>'
+      VB:
+      - id: System.Nullable`1
+        name: Nullable
+        nameWithType: Nullable
+        qualifiedName: System.Nullable
+        isExternal: true
+      - name: '(Of '
+        nameWithType: '(Of '
+        qualifiedName: '(Of '
+      - id: DateTime
+        name: DateTime
+        nameWithType: DateTime
+        qualifiedName: DateTime
+        isExternal: true
+      - name: )
+        nameWithType: )
+        qualifiedName: )
+    isDefinition: false
+    definition: System.Nullable`1
+    parent: System
+    commentId: T:System.Nullable{DateTime}
+  Io.Karte.Variables.LastFetchTime*:
+    name:
+      CSharp:
+      - id: Io.Karte.Variables.LastFetchTime*
+        name: LastFetchTime
+        nameWithType: Variables.LastFetchTime
+        qualifiedName: Io.Karte.Variables.LastFetchTime
+      VB:
+      - id: Io.Karte.Variables.LastFetchTime*
+        name: LastFetchTime
+        nameWithType: Variables.LastFetchTime
+        qualifiedName: Io.Karte.Variables.LastFetchTime
+    isDefinition: true
+    commentId: Overload:Io.Karte.Variables.LastFetchTime
+  System.Int32:
+    name:
+      CSharp:
+      - id: System.Int32
+        name: Int32
+        nameWithType: Int32
+        qualifiedName: System.Int32
+        isExternal: true
+      VB:
+      - id: System.Int32
+        name: Int32
+        nameWithType: Int32
+        qualifiedName: System.Int32
+        isExternal: true
+    isDefinition: true
+    parent: System
+    commentId: T:System.Int32
+  Io.Karte.Variables.LastFetchStatus*:
+    name:
+      CSharp:
+      - id: Io.Karte.Variables.LastFetchStatus*
+        name: LastFetchStatus
+        nameWithType: Variables.LastFetchStatus
+        qualifiedName: Io.Karte.Variables.LastFetchStatus
+      VB:
+      - id: Io.Karte.Variables.LastFetchStatus*
+        name: LastFetchStatus
+        nameWithType: Variables.LastFetchStatus
+        qualifiedName: Io.Karte.Variables.LastFetchStatus
+    isDefinition: true
+    commentId: Overload:Io.Karte.Variables.LastFetchStatus
+  System.Boolean:
+    name:
+      CSharp:
+      - id: System.Boolean
+        name: Boolean
+        nameWithType: Boolean
+        qualifiedName: System.Boolean
+        isExternal: true
+      VB:
+      - id: System.Boolean
+        name: Boolean
+        nameWithType: Boolean
+        qualifiedName: System.Boolean
+        isExternal: true
+    isDefinition: true
+    parent: System
+    commentId: T:System.Boolean
+  Io.Karte.Variables.HasSuccessfulLastFetchIn*:
+    name:
+      CSharp:
+      - id: Io.Karte.Variables.HasSuccessfulLastFetchIn*
+        name: HasSuccessfulLastFetchIn
+        nameWithType: Variables.HasSuccessfulLastFetchIn
+        qualifiedName: Io.Karte.Variables.HasSuccessfulLastFetchIn
+      VB:
+      - id: Io.Karte.Variables.HasSuccessfulLastFetchIn*
+        name: HasSuccessfulLastFetchIn
+        nameWithType: Variables.HasSuccessfulLastFetchIn
+        qualifiedName: Io.Karte.Variables.HasSuccessfulLastFetchIn
+    isDefinition: true
+    commentId: Overload:Io.Karte.Variables.HasSuccessfulLastFetchIn
+  Io.Karte.Variables:
+    name:
+      CSharp:
+      - id: Io.Karte.Variables
+        name: Variables
+        nameWithType: Variables
+        qualifiedName: Io.Karte.Variables
+      VB:
+      - id: Io.Karte.Variables
+        name: Variables
+        nameWithType: Variables
+        qualifiedName: Io.Karte.Variables
+    isDefinition: true
+    commentId: T:Io.Karte.Variables
+  Io.Karte.UserSync.AppendUserSyncQueryParameter*:
+    name:
+      CSharp:
+      - id: Io.Karte.UserSync.AppendUserSyncQueryParameter*
+        name: AppendUserSyncQueryParameter
+        nameWithType: UserSync.AppendUserSyncQueryParameter
+        qualifiedName: Io.Karte.UserSync.AppendUserSyncQueryParameter
+      VB:
+      - id: Io.Karte.UserSync.AppendUserSyncQueryParameter*
+        name: AppendUserSyncQueryParameter
+        nameWithType: UserSync.AppendUserSyncQueryParameter
+        qualifiedName: Io.Karte.UserSync.AppendUserSyncQueryParameter
+    isDefinition: true
+    commentId: Overload:Io.Karte.UserSync.AppendUserSyncQueryParameter
+  Io.Karte.UserSync.getUserSyncScript*:
+    name:
+      CSharp:
+      - id: Io.Karte.UserSync.getUserSyncScript*
+        name: getUserSyncScript
+        nameWithType: UserSync.getUserSyncScript
+        qualifiedName: Io.Karte.UserSync.getUserSyncScript
+      VB:
+      - id: Io.Karte.UserSync.getUserSyncScript*
+        name: getUserSyncScript
+        nameWithType: UserSync.getUserSyncScript
+        qualifiedName: Io.Karte.UserSync.getUserSyncScript
+    isDefinition: true
+    commentId: Overload:Io.Karte.UserSync.getUserSyncScript
+  Io.Karte.UserSync:
+    name:
+      CSharp:
+      - id: Io.Karte.UserSync
+        name: UserSync
+        nameWithType: UserSync
+        qualifiedName: Io.Karte.UserSync
+      VB:
+      - id: Io.Karte.UserSync
+        name: UserSync
+        nameWithType: UserSync
+        qualifiedName: Io.Karte.UserSync
+    isDefinition: true
+    commentId: T:Io.Karte.UserSync
+  Io.Karte.KarteAttributes.Body*:
+    name:
+      CSharp:
+      - id: Io.Karte.KarteAttributes.Body*
+        name: Body
+        nameWithType: KarteAttributes.Body
+        qualifiedName: Io.Karte.KarteAttributes.Body
+      VB:
+      - id: Io.Karte.KarteAttributes.Body*
+        name: Body
+        nameWithType: KarteAttributes.Body
+        qualifiedName: Io.Karte.KarteAttributes.Body
+    isDefinition: true
+    commentId: Overload:Io.Karte.KarteAttributes.Body
+  Io.Karte.KarteAttributes.BigImageUrl*:
+    name:
+      CSharp:
+      - id: Io.Karte.KarteAttributes.BigImageUrl*
+        name: BigImageUrl
+        nameWithType: KarteAttributes.BigImageUrl
+        qualifiedName: Io.Karte.KarteAttributes.BigImageUrl
+      VB:
+      - id: Io.Karte.KarteAttributes.BigImageUrl*
+        name: BigImageUrl
+        nameWithType: KarteAttributes.BigImageUrl
+        qualifiedName: Io.Karte.KarteAttributes.BigImageUrl
+    isDefinition: true
+    commentId: Overload:Io.Karte.KarteAttributes.BigImageUrl
+  Io.Karte.KarteAttributes.Link*:
+    name:
+      CSharp:
+      - id: Io.Karte.KarteAttributes.Link*
+        name: Link
+        nameWithType: KarteAttributes.Link
+        qualifiedName: Io.Karte.KarteAttributes.Link
+      VB:
+      - id: Io.Karte.KarteAttributes.Link*
+        name: Link
+        nameWithType: KarteAttributes.Link
+        qualifiedName: Io.Karte.KarteAttributes.Link
+    isDefinition: true
+    commentId: Overload:Io.Karte.KarteAttributes.Link
+  Io.Karte.KarteAttributes.Channel*:
+    name:
+      CSharp:
+      - id: Io.Karte.KarteAttributes.Channel*
+        name: Channel
+        nameWithType: KarteAttributes.Channel
+        qualifiedName: Io.Karte.KarteAttributes.Channel
+      VB:
+      - id: Io.Karte.KarteAttributes.Channel*
+        name: Channel
+        nameWithType: KarteAttributes.Channel
+        qualifiedName: Io.Karte.KarteAttributes.Channel
+    isDefinition: true
+    commentId: Overload:Io.Karte.KarteAttributes.Channel
+  Io.Karte.KarteAttributes.Sound*:
+    name:
+      CSharp:
+      - id: Io.Karte.KarteAttributes.Sound*
+        name: Sound
+        nameWithType: KarteAttributes.Sound
+        qualifiedName: Io.Karte.KarteAttributes.Sound
+      VB:
+      - id: Io.Karte.KarteAttributes.Sound*
+        name: Sound
+        nameWithType: KarteAttributes.Sound
+        qualifiedName: Io.Karte.KarteAttributes.Sound
+    isDefinition: true
+    commentId: Overload:Io.Karte.KarteAttributes.Sound
+  Io.Karte.KarteAttributes.Title*:
+    name:
+      CSharp:
+      - id: Io.Karte.KarteAttributes.Title*
+        name: Title
+        nameWithType: KarteAttributes.Title
+        qualifiedName: Io.Karte.KarteAttributes.Title
+      VB:
+      - id: Io.Karte.KarteAttributes.Title*
+        name: Title
+        nameWithType: KarteAttributes.Title
+        qualifiedName: Io.Karte.KarteAttributes.Title
+    isDefinition: true
+    commentId: Overload:Io.Karte.KarteAttributes.Title
+  Io.Karte.KarteAttributes:
+    name:
+      CSharp:
+      - id: Io.Karte.KarteAttributes
+        name: KarteAttributes
+        nameWithType: KarteAttributes
+        qualifiedName: Io.Karte.KarteAttributes
+      VB:
+      - id: Io.Karte.KarteAttributes
+        name: KarteAttributes
+        nameWithType: KarteAttributes
+        qualifiedName: Io.Karte.KarteAttributes
+    isDefinition: true
+    parent: Io.Karte
+    commentId: T:Io.Karte.KarteAttributes
+  Io.Karte.InAppMessaging.HandleOpenUrl:
+    name:
+      CSharp:
+      - id: Io.Karte.InAppMessaging.HandleOpenUrl
+        name: InAppMessaging.HandleOpenUrl
+        nameWithType: InAppMessaging.HandleOpenUrl
+        qualifiedName: Io.Karte.InAppMessaging.HandleOpenUrl
+      VB:
+      - id: Io.Karte.InAppMessaging.HandleOpenUrl
+        name: InAppMessaging.HandleOpenUrl
+        nameWithType: InAppMessaging.HandleOpenUrl
+        qualifiedName: Io.Karte.InAppMessaging.HandleOpenUrl
+    isDefinition: true
+    parent: Io.Karte
+    commentId: T:Io.Karte.InAppMessaging.HandleOpenUrl
+  Io.Karte.InAppMessaging.OnOpenUrl*:
+    name:
+      CSharp:
+      - id: Io.Karte.InAppMessaging.OnOpenUrl*
+        name: OnOpenUrl
+        nameWithType: InAppMessaging.OnOpenUrl
+        qualifiedName: Io.Karte.InAppMessaging.OnOpenUrl
+      VB:
+      - id: Io.Karte.InAppMessaging.OnOpenUrl*
+        name: OnOpenUrl
+        nameWithType: InAppMessaging.OnOpenUrl
+        qualifiedName: Io.Karte.InAppMessaging.OnOpenUrl
+    isDefinition: true
+    commentId: Overload:Io.Karte.InAppMessaging.OnOpenUrl
+  Io.Karte.InAppMessaging.HandleOpenUrlWithScene:
+    name:
+      CSharp:
+      - id: Io.Karte.InAppMessaging.HandleOpenUrlWithScene
+        name: InAppMessaging.HandleOpenUrlWithScene
+        nameWithType: InAppMessaging.HandleOpenUrlWithScene
+        qualifiedName: Io.Karte.InAppMessaging.HandleOpenUrlWithScene
+      VB:
+      - id: Io.Karte.InAppMessaging.HandleOpenUrlWithScene
+        name: InAppMessaging.HandleOpenUrlWithScene
+        nameWithType: InAppMessaging.HandleOpenUrlWithScene
+        qualifiedName: Io.Karte.InAppMessaging.HandleOpenUrlWithScene
+    isDefinition: true
+    parent: Io.Karte
+    commentId: T:Io.Karte.InAppMessaging.HandleOpenUrlWithScene
+  Io.Karte.InAppMessaging.OnOpenUrlWithScene*:
+    name:
+      CSharp:
+      - id: Io.Karte.InAppMessaging.OnOpenUrlWithScene*
+        name: OnOpenUrlWithScene
+        nameWithType: InAppMessaging.OnOpenUrlWithScene
+        qualifiedName: Io.Karte.InAppMessaging.OnOpenUrlWithScene
+      VB:
+      - id: Io.Karte.InAppMessaging.OnOpenUrlWithScene*
+        name: OnOpenUrlWithScene
+        nameWithType: InAppMessaging.OnOpenUrlWithScene
+        qualifiedName: Io.Karte.InAppMessaging.OnOpenUrlWithScene
+    isDefinition: true
+    commentId: Overload:Io.Karte.InAppMessaging.OnOpenUrlWithScene
+  Io.Karte.InAppMessaging.InvokeOpenUrlHandler*:
+    name:
+      CSharp:
+      - id: Io.Karte.InAppMessaging.InvokeOpenUrlHandler*
+        name: InvokeOpenUrlHandler
+        nameWithType: InAppMessaging.InvokeOpenUrlHandler
+        qualifiedName: Io.Karte.InAppMessaging.InvokeOpenUrlHandler
+      VB:
+      - id: Io.Karte.InAppMessaging.InvokeOpenUrlHandler*
+        name: InvokeOpenUrlHandler
+        nameWithType: InAppMessaging.InvokeOpenUrlHandler
+        qualifiedName: Io.Karte.InAppMessaging.InvokeOpenUrlHandler
+    isDefinition: true
+    commentId: Overload:Io.Karte.InAppMessaging.InvokeOpenUrlHandler
+  Io.Karte.InAppMessaging.InvokeOpenUrlWithSceneHandler*:
+    name:
+      CSharp:
+      - id: Io.Karte.InAppMessaging.InvokeOpenUrlWithSceneHandler*
+        name: InvokeOpenUrlWithSceneHandler
+        nameWithType: InAppMessaging.InvokeOpenUrlWithSceneHandler
+        qualifiedName: Io.Karte.InAppMessaging.InvokeOpenUrlWithSceneHandler
+      VB:
+      - id: Io.Karte.InAppMessaging.InvokeOpenUrlWithSceneHandler*
+        name: InvokeOpenUrlWithSceneHandler
+        nameWithType: InAppMessaging.InvokeOpenUrlWithSceneHandler
+        qualifiedName: Io.Karte.InAppMessaging.InvokeOpenUrlWithSceneHandler
+    isDefinition: true
+    commentId: Overload:Io.Karte.InAppMessaging.InvokeOpenUrlWithSceneHandler
+  Io.Karte.InAppMessaging.dismiss*:
+    name:
+      CSharp:
+      - id: Io.Karte.InAppMessaging.dismiss*
+        name: dismiss
+        nameWithType: InAppMessaging.dismiss
+        qualifiedName: Io.Karte.InAppMessaging.dismiss
+      VB:
+      - id: Io.Karte.InAppMessaging.dismiss*
+        name: dismiss
+        nameWithType: InAppMessaging.dismiss
+        qualifiedName: Io.Karte.InAppMessaging.dismiss
+    isDefinition: true
+    commentId: Overload:Io.Karte.InAppMessaging.dismiss
+  Io.Karte.InAppMessaging.isPresenting*:
+    name:
+      CSharp:
+      - id: Io.Karte.InAppMessaging.isPresenting*
+        name: isPresenting
+        nameWithType: InAppMessaging.isPresenting
+        qualifiedName: Io.Karte.InAppMessaging.isPresenting
+      VB:
+      - id: Io.Karte.InAppMessaging.isPresenting*
+        name: isPresenting
+        nameWithType: InAppMessaging.isPresenting
+        qualifiedName: Io.Karte.InAppMessaging.isPresenting
+    isDefinition: true
+    commentId: Overload:Io.Karte.InAppMessaging.isPresenting
+  Io.Karte.InAppMessaging.suppress*:
+    name:
+      CSharp:
+      - id: Io.Karte.InAppMessaging.suppress*
+        name: suppress
+        nameWithType: InAppMessaging.suppress
+        qualifiedName: Io.Karte.InAppMessaging.suppress
+      VB:
+      - id: Io.Karte.InAppMessaging.suppress*
+        name: suppress
+        nameWithType: InAppMessaging.suppress
+        qualifiedName: Io.Karte.InAppMessaging.suppress
+    isDefinition: true
+    commentId: Overload:Io.Karte.InAppMessaging.suppress
+  Io.Karte.InAppMessaging.unsuppress*:
+    name:
+      CSharp:
+      - id: Io.Karte.InAppMessaging.unsuppress*
+        name: unsuppress
+        nameWithType: InAppMessaging.unsuppress
+        qualifiedName: Io.Karte.InAppMessaging.unsuppress
+      VB:
+      - id: Io.Karte.InAppMessaging.unsuppress*
+        name: unsuppress
+        nameWithType: InAppMessaging.unsuppress
+        qualifiedName: Io.Karte.InAppMessaging.unsuppress
+    isDefinition: true
+    commentId: Overload:Io.Karte.InAppMessaging.unsuppress
+  Io.Karte.InAppMessaging:
+    name:
+      CSharp:
+      - id: Io.Karte.InAppMessaging
+        name: InAppMessaging
+        nameWithType: InAppMessaging
+        qualifiedName: Io.Karte.InAppMessaging
+      VB:
+      - id: Io.Karte.InAppMessaging
+        name: InAppMessaging
+        nameWithType: InAppMessaging
+        qualifiedName: Io.Karte.InAppMessaging
+    isDefinition: true
+    commentId: T:Io.Karte.InAppMessaging
+  Io.Karte.Variable.GetString*:
+    name:
+      CSharp:
+      - id: Io.Karte.Variable.GetString*
+        name: GetString
+        nameWithType: Variable.GetString
+        qualifiedName: Io.Karte.Variable.GetString
+      VB:
+      - id: Io.Karte.Variable.GetString*
+        name: GetString
+        nameWithType: Variable.GetString
+        qualifiedName: Io.Karte.Variable.GetString
+    isDefinition: true
+    commentId: Overload:Io.Karte.Variable.GetString
+  Io.Karte.Variable.GetInt*:
+    name:
+      CSharp:
+      - id: Io.Karte.Variable.GetInt*
+        name: GetInt
+        nameWithType: Variable.GetInt
+        qualifiedName: Io.Karte.Variable.GetInt
+      VB:
+      - id: Io.Karte.Variable.GetInt*
+        name: GetInt
+        nameWithType: Variable.GetInt
+        qualifiedName: Io.Karte.Variable.GetInt
+    isDefinition: true
+    commentId: Overload:Io.Karte.Variable.GetInt
+  System.Double:
+    name:
+      CSharp:
+      - id: System.Double
+        name: Double
+        nameWithType: Double
+        qualifiedName: System.Double
+        isExternal: true
+      VB:
+      - id: System.Double
+        name: Double
+        nameWithType: Double
+        qualifiedName: System.Double
+        isExternal: true
+    isDefinition: true
+    parent: System
+    commentId: T:System.Double
+  Io.Karte.Variable.GetDouble*:
+    name:
+      CSharp:
+      - id: Io.Karte.Variable.GetDouble*
+        name: GetDouble
+        nameWithType: Variable.GetDouble
+        qualifiedName: Io.Karte.Variable.GetDouble
+      VB:
+      - id: Io.Karte.Variable.GetDouble*
+        name: GetDouble
+        nameWithType: Variable.GetDouble
+        qualifiedName: Io.Karte.Variable.GetDouble
+    isDefinition: true
+    commentId: Overload:Io.Karte.Variable.GetDouble
+  Io.Karte.Variable.GetBool*:
+    name:
+      CSharp:
+      - id: Io.Karte.Variable.GetBool*
+        name: GetBool
+        nameWithType: Variable.GetBool
+        qualifiedName: Io.Karte.Variable.GetBool
+      VB:
+      - id: Io.Karte.Variable.GetBool*
+        name: GetBool
+        nameWithType: Variable.GetBool
+        qualifiedName: Io.Karte.Variable.GetBool
+    isDefinition: true
+    commentId: Overload:Io.Karte.Variable.GetBool
+  System.Object[]:
+    name:
+      CSharp:
+      - id: System.Object
+        name: Object
+        nameWithType: Object
+        qualifiedName: System.Object
+        isExternal: true
+      - name: '[]'
+        nameWithType: '[]'
+        qualifiedName: '[]'
+      VB:
+      - id: System.Object
+        name: Object
+        nameWithType: Object
+        qualifiedName: System.Object
+        isExternal: true
+      - name: ()
+        nameWithType: ()
+        qualifiedName: ()
+    isDefinition: false
+  Io.Karte.Variable.GetJsonArray*:
+    name:
+      CSharp:
+      - id: Io.Karte.Variable.GetJsonArray*
+        name: GetJsonArray
+        nameWithType: Variable.GetJsonArray
+        qualifiedName: Io.Karte.Variable.GetJsonArray
+      VB:
+      - id: Io.Karte.Variable.GetJsonArray*
+        name: GetJsonArray
+        nameWithType: Variable.GetJsonArray
+        qualifiedName: Io.Karte.Variable.GetJsonArray
+    isDefinition: true
+    commentId: Overload:Io.Karte.Variable.GetJsonArray
+  Io.Karte.Variable.GetJsonObject*:
+    name:
+      CSharp:
+      - id: Io.Karte.Variable.GetJsonObject*
+        name: GetJsonObject
+        nameWithType: Variable.GetJsonObject
+        qualifiedName: Io.Karte.Variable.GetJsonObject
+      VB:
+      - id: Io.Karte.Variable.GetJsonObject*
+        name: GetJsonObject
+        nameWithType: Variable.GetJsonObject
+        qualifiedName: Io.Karte.Variable.GetJsonObject
+    isDefinition: true
+    commentId: Overload:Io.Karte.Variable.GetJsonObject
+  IDictionary`2:
+    name:
+      CSharp:
+      - id: IDictionary`2
+        name: IDictionary
+        nameWithType: IDictionary
+        qualifiedName: IDictionary
+        isExternal: true
+      - name: <
+        nameWithType: <
+        qualifiedName: <
+      - name: ''
+        nameWithType: ''
+        qualifiedName: ''
+      - name: ', '
+        nameWithType: ', '
+        qualifiedName: ', '
+      - name: ''
+        nameWithType: ''
+        qualifiedName: ''
+      - name: '>'
+        nameWithType: '>'
+        qualifiedName: '>'
+      VB:
+      - id: IDictionary`2
+        name: IDictionary
+        nameWithType: IDictionary
+        qualifiedName: IDictionary
+        isExternal: true
+      - name: '(Of '
+        nameWithType: '(Of '
+        qualifiedName: '(Of '
+      - name: ''
+        nameWithType: ''
+        qualifiedName: ''
+      - name: ', '
+        nameWithType: ', '
+        qualifiedName: ', '
+      - name: ''
+        nameWithType: ''
+        qualifiedName: ''
+      - name: )
+        nameWithType: )
+        qualifiedName: )
+    isDefinition: true
+  IDictionary{System.String,System.String}:
+    name:
+      CSharp:
+      - id: IDictionary`2
+        name: IDictionary
+        nameWithType: IDictionary
+        qualifiedName: IDictionary
+        isExternal: true
+      - name: <
+        nameWithType: <
+        qualifiedName: <
+      - id: System.String
+        name: String
+        nameWithType: String
+        qualifiedName: System.String
+        isExternal: true
+      - name: ', '
+        nameWithType: ', '
+        qualifiedName: ', '
+      - id: System.String
+        name: String
+        nameWithType: String
+        qualifiedName: System.String
+        isExternal: true
+      - name: '>'
+        nameWithType: '>'
+        qualifiedName: '>'
+      VB:
+      - id: IDictionary`2
+        name: IDictionary
+        nameWithType: IDictionary
+        qualifiedName: IDictionary
+        isExternal: true
+      - name: '(Of '
+        nameWithType: '(Of '
+        qualifiedName: '(Of '
+      - id: System.String
+        name: String
+        nameWithType: String
+        qualifiedName: System.String
+        isExternal: true
+      - name: ', '
+        nameWithType: ', '
+        qualifiedName: ', '
+      - id: System.String
+        name: String
+        nameWithType: String
+        qualifiedName: System.String
+        isExternal: true
+      - name: )
+        nameWithType: )
+        qualifiedName: )
+    isDefinition: false
+    definition: IDictionary`2
+    commentId: '!:IDictionary{System.String,System.String}'
+  Io.Karte.RemoteNotificationHandler.HandleRemoteNotification*:
+    name:
+      CSharp:
+      - id: Io.Karte.RemoteNotificationHandler.HandleRemoteNotification*
+        name: HandleRemoteNotification
+        nameWithType: RemoteNotificationHandler.HandleRemoteNotification
+        qualifiedName: Io.Karte.RemoteNotificationHandler.HandleRemoteNotification
+      VB:
+      - id: Io.Karte.RemoteNotificationHandler.HandleRemoteNotification*
+        name: HandleRemoteNotification
+        nameWithType: RemoteNotificationHandler.HandleRemoteNotification
+        qualifiedName: Io.Karte.RemoteNotificationHandler.HandleRemoteNotification
+    isDefinition: true
+    commentId: Overload:Io.Karte.RemoteNotificationHandler.HandleRemoteNotification
+  Io.Karte.RemoteNotificationHandler.RetrieveURLFromUserInfo*:
+    name:
+      CSharp:
+      - id: Io.Karte.RemoteNotificationHandler.RetrieveURLFromUserInfo*
+        name: RetrieveURLFromUserInfo
+        nameWithType: RemoteNotificationHandler.RetrieveURLFromUserInfo
+        qualifiedName: Io.Karte.RemoteNotificationHandler.RetrieveURLFromUserInfo
+      VB:
+      - id: Io.Karte.RemoteNotificationHandler.RetrieveURLFromUserInfo*
+        name: RetrieveURLFromUserInfo
+        nameWithType: RemoteNotificationHandler.RetrieveURLFromUserInfo
+        qualifiedName: Io.Karte.RemoteNotificationHandler.RetrieveURLFromUserInfo
+    isDefinition: true
+    commentId: Overload:Io.Karte.RemoteNotificationHandler.RetrieveURLFromUserInfo
+  Io.Karte.RemoteNotificationHandler.ExtractKarteAttributes*:
+    name:
+      CSharp:
+      - id: Io.Karte.RemoteNotificationHandler.ExtractKarteAttributes*
+        name: ExtractKarteAttributes
+        nameWithType: RemoteNotificationHandler.ExtractKarteAttributes
+        qualifiedName: Io.Karte.RemoteNotificationHandler.ExtractKarteAttributes
+      VB:
+      - id: Io.Karte.RemoteNotificationHandler.ExtractKarteAttributes*
+        name: ExtractKarteAttributes
+        nameWithType: RemoteNotificationHandler.ExtractKarteAttributes
+        qualifiedName: Io.Karte.RemoteNotificationHandler.ExtractKarteAttributes
+    isDefinition: true
+    commentId: Overload:Io.Karte.RemoteNotificationHandler.ExtractKarteAttributes
+  Io.Karte.RemoteNotificationHandler:
+    name:
+      CSharp:
+      - id: Io.Karte.RemoteNotificationHandler
+        name: RemoteNotificationHandler
+        nameWithType: RemoteNotificationHandler
+        qualifiedName: Io.Karte.RemoteNotificationHandler
+      VB:
+      - id: Io.Karte.RemoteNotificationHandler
+        name: RemoteNotificationHandler
+        nameWithType: RemoteNotificationHandler
+        qualifiedName: Io.Karte.RemoteNotificationHandler
+    isDefinition: true
+    commentId: T:Io.Karte.RemoteNotificationHandler
+  Io.Karte.App.GetVisitorId*:
+    name:
+      CSharp:
+      - id: Io.Karte.App.GetVisitorId*
+        name: GetVisitorId
+        nameWithType: App.GetVisitorId
+        qualifiedName: Io.Karte.App.GetVisitorId
+      VB:
+      - id: Io.Karte.App.GetVisitorId*
+        name: GetVisitorId
+        nameWithType: App.GetVisitorId
+        qualifiedName: Io.Karte.App.GetVisitorId
+    isDefinition: true
+    commentId: Overload:Io.Karte.App.GetVisitorId
+  Io.Karte.App.RegisterFCMToken*:
+    name:
+      CSharp:
+      - id: Io.Karte.App.RegisterFCMToken*
+        name: RegisterFCMToken
+        nameWithType: App.RegisterFCMToken
+        qualifiedName: Io.Karte.App.RegisterFCMToken
+      VB:
+      - id: Io.Karte.App.RegisterFCMToken*
+        name: RegisterFCMToken
+        nameWithType: App.RegisterFCMToken
+        qualifiedName: Io.Karte.App.RegisterFCMToken
+    isDefinition: true
+    commentId: Overload:Io.Karte.App.RegisterFCMToken
+  Io.Karte.App.RenewVisitorId*:
+    name:
+      CSharp:
+      - id: Io.Karte.App.RenewVisitorId*
+        name: RenewVisitorId
+        nameWithType: App.RenewVisitorId
+        qualifiedName: Io.Karte.App.RenewVisitorId
+      VB:
+      - id: Io.Karte.App.RenewVisitorId*
+        name: RenewVisitorId
+        nameWithType: App.RenewVisitorId
+        qualifiedName: Io.Karte.App.RenewVisitorId
+    isDefinition: true
+    commentId: Overload:Io.Karte.App.RenewVisitorId
+  Io.Karte.App.OptOut*:
+    name:
+      CSharp:
+      - id: Io.Karte.App.OptOut*
+        name: OptOut
+        nameWithType: App.OptOut
+        qualifiedName: Io.Karte.App.OptOut
+      VB:
+      - id: Io.Karte.App.OptOut*
+        name: OptOut
+        nameWithType: App.OptOut
+        qualifiedName: Io.Karte.App.OptOut
+    isDefinition: true
+    commentId: Overload:Io.Karte.App.OptOut
+  Io.Karte.App.OptIn*:
+    name:
+      CSharp:
+      - id: Io.Karte.App.OptIn*
+        name: OptIn
+        nameWithType: App.OptIn
+        qualifiedName: Io.Karte.App.OptIn
+      VB:
+      - id: Io.Karte.App.OptIn*
+        name: OptIn
+        nameWithType: App.OptIn
+        qualifiedName: Io.Karte.App.OptIn
+    isDefinition: true
+    commentId: Overload:Io.Karte.App.OptIn
+  Io.Karte.App.OpenUrl*:
+    name:
+      CSharp:
+      - id: Io.Karte.App.OpenUrl*
+        name: OpenUrl
+        nameWithType: App.OpenUrl
+        qualifiedName: Io.Karte.App.OpenUrl
+      VB:
+      - id: Io.Karte.App.OpenUrl*
+        name: OpenUrl
+        nameWithType: App.OpenUrl
+        qualifiedName: Io.Karte.App.OpenUrl
+    isDefinition: true
+    commentId: Overload:Io.Karte.App.OpenUrl
+  Io.Karte.App:
+    name:
+      CSharp:
+      - id: Io.Karte.App
+        name: App
+        nameWithType: App
+        qualifiedName: Io.Karte.App
+      VB:
+      - id: Io.Karte.App
+        name: App
+        nameWithType: App
+        qualifiedName: Io.Karte.App
+    isDefinition: true
+    commentId: T:Io.Karte.App
+  Io.Karte.Tracker.View*:
+    name:
+      CSharp:
+      - id: Io.Karte.Tracker.View*
+        name: View
+        nameWithType: Tracker.View
+        qualifiedName: Io.Karte.Tracker.View
+      VB:
+      - id: Io.Karte.Tracker.View*
+        name: View
+        nameWithType: Tracker.View
+        qualifiedName: Io.Karte.Tracker.View
+    isDefinition: true
+    commentId: Overload:Io.Karte.Tracker.View
+  Io.Karte.Tracker.Track*:
+    name:
+      CSharp:
+      - id: Io.Karte.Tracker.Track*
+        name: Track
+        nameWithType: Tracker.Track
+        qualifiedName: Io.Karte.Tracker.Track
+      VB:
+      - id: Io.Karte.Tracker.Track*
+        name: Track
+        nameWithType: Tracker.Track
+        qualifiedName: Io.Karte.Tracker.Track
+    isDefinition: true
+    commentId: Overload:Io.Karte.Tracker.Track
+  Io.Karte.Tracker.Identify*:
+    name:
+      CSharp:
+      - id: Io.Karte.Tracker.Identify*
+        name: Identify
+        nameWithType: Tracker.Identify
+        qualifiedName: Io.Karte.Tracker.Identify
+      VB:
+      - id: Io.Karte.Tracker.Identify*
+        name: Identify
+        nameWithType: Tracker.Identify
+        qualifiedName: Io.Karte.Tracker.Identify
+    isDefinition: true
+    commentId: Overload:Io.Karte.Tracker.Identify
+  Io.Karte.Tracker.Attribute*:
+    name:
+      CSharp:
+      - id: Io.Karte.Tracker.Attribute*
+        name: Attribute
+        nameWithType: Tracker.Attribute
+        qualifiedName: Io.Karte.Tracker.Attribute
+      VB:
+      - id: Io.Karte.Tracker.Attribute*
+        name: Attribute
+        nameWithType: Tracker.Attribute
+        qualifiedName: Io.Karte.Tracker.Attribute
+    isDefinition: true
+    commentId: Overload:Io.Karte.Tracker.Attribute
+  Io.Karte.Tracker:
+    name:
+      CSharp:
+      - id: Io.Karte.Tracker
+        name: Tracker
+        nameWithType: Tracker
+        qualifiedName: Io.Karte.Tracker
+      VB:
+      - id: Io.Karte.Tracker
+        name: Tracker
+        nameWithType: Tracker
+        qualifiedName: Io.Karte.Tracker
+    isDefinition: true
+    commentId: T:Io.Karte.Tracker
