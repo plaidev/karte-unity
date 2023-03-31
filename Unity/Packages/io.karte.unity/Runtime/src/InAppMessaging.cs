@@ -1,14 +1,17 @@
 #if UNITY_IOS && !UNITY_EDITOR
 using System.Runtime.InteropServices;
 #endif
+using System;
 using UnityEngine;
 
-namespace Io.Karte {
+namespace Io.Karte
+{
 
     /// <summary>
     /// InAppMessagingManagerクラスは、アプリ内メッセージに関連する機能を提供します。
     /// </summary>
-    public class InAppMessaging {
+    public class InAppMessaging
+    {
 #if UNITY_IOS && !UNITY_EDITOR
         [DllImport ("__Internal")]
         static extern bool KRTInAppMessaging_presenting ();
@@ -33,32 +36,43 @@ namespace Io.Karte {
         public delegate void HandleOpenUrlWithScene(string url, string sceneIdentifier);
 
         private static HandleOpenUrl openUrlHandlers;
-        public static HandleOpenUrl OnOpenUrl {
+        public static HandleOpenUrl OnOpenUrl
+        {
             get { return openUrlHandlers; }
-            set {
+            set
+            {
                 openUrlHandlers = value;
-                if(openUrlHandlers == null || openUrlHandlers.GetInvocationList().GetLength(0) == 0) {
+                if (openUrlHandlers == null || openUrlHandlers.GetInvocationList().GetLength(0) == 0)
+                {
                     disableOpenUrlHandler();
-                } else {
+                }
+                else
+                {
                     enableOpenUrlHandler();
                 }
             }
         }
 
         private static HandleOpenUrlWithScene openUrlWithSceneHandlers;
-        public static HandleOpenUrlWithScene OnOpenUrlWithScene {
+        public static HandleOpenUrlWithScene OnOpenUrlWithScene
+        {
             get { return openUrlWithSceneHandlers; }
-            set {
+            set
+            {
                 openUrlWithSceneHandlers = value;
-                if(openUrlWithSceneHandlers == null || openUrlWithSceneHandlers.GetInvocationList().GetLength(0) == 0) {
+                if (openUrlWithSceneHandlers == null || openUrlWithSceneHandlers.GetInvocationList().GetLength(0) == 0)
+                {
                     disableOpenUrlWithSceneHandler();
-                } else {
+                }
+                else
+                {
                     enableOpenUrlWithSceneHandler();
                 }
             }
         }
 
-        private static void enableOpenUrlHandler() {
+        private static void enableOpenUrlHandler()
+        {
 #if UNITY_IOS && !UNITY_EDITOR
             KRTInAppMessaging_enableOpenUrlHandler (CallbackReceiver.CallbackTargetName);
 #elif UNITY_ANDROID && !UNITY_EDITOR
@@ -67,7 +81,8 @@ namespace Io.Karte {
 #endif
         }
 
-        private static void disableOpenUrlHandler() {
+        private static void disableOpenUrlHandler()
+        {
 #if UNITY_IOS && !UNITY_EDITOR
             KRTInAppMessaging_disableOpenUrlHandler ();
 #elif UNITY_ANDROID && !UNITY_EDITOR
@@ -76,26 +91,32 @@ namespace Io.Karte {
 #endif
         }
 
-        private static void enableOpenUrlWithSceneHandler() {
+        private static void enableOpenUrlWithSceneHandler()
+        {
 #if UNITY_IOS && !UNITY_EDITOR
             KRTInAppMessaging_enableOpenUrlWithSceneHandler (CallbackReceiver.CallbackTargetName);
 #endif
         }
 
-        private static void disableOpenUrlWithSceneHandler() {
+        private static void disableOpenUrlWithSceneHandler()
+        {
 #if UNITY_IOS && !UNITY_EDITOR
             KRTInAppMessaging_disableOpenUrlWithSceneHandler ();
 #endif
         }
 
-        public static void InvokeOpenUrlHandler(string url) {
-            if(openUrlHandlers != null) {
+        public static void InvokeOpenUrlHandler(string url)
+        {
+            if (openUrlHandlers != null)
+            {
                 openUrlHandlers(url);
             }
         }
 
-        public static void InvokeOpenUrlWithSceneHandler(string url, string sceneIdentifier) {
-            if(openUrlWithSceneHandlers != null) {
+        public static void InvokeOpenUrlWithSceneHandler(string url, string sceneIdentifier)
+        {
+            if (openUrlWithSceneHandlers != null)
+            {
                 openUrlWithSceneHandlers(url, sceneIdentifier);
             }
         }
@@ -103,7 +124,8 @@ namespace Io.Karte {
         /// <summary>
         /// 表示中のアプリ内メッセージをリセットします。
         /// </summary>
-        public static void dismiss () {
+        public static void dismiss()
+        {
 #if UNITY_IOS && !UNITY_EDITOR
             KRTInAppMessaging_dismiss ();
 #elif UNITY_ANDROID && !UNITY_EDITOR
@@ -113,9 +135,10 @@ namespace Io.Karte {
 #endif
         }
 
-        private static void dismissAndroid () {
-            AndroidJavaClass manager = new AndroidJavaClass ("io.karte.unity.UnityInAppMessaging");
-            manager.CallStatic ("dismiss");
+        private static void dismissAndroid()
+        {
+            AndroidJavaClass manager = new AndroidJavaClass("io.karte.unity.UnityInAppMessaging");
+            manager.CallStatic("dismiss");
         }
 
         /// <summary>
@@ -124,8 +147,10 @@ namespace Io.Karte {
         /// <returns>
         /// 判定結果を返します。アプリ内メッセージを表示中の場合はtrue、そうでない場合はfalseを返します。
         /// </returns>
-        public static bool isPresenting {
-            get {
+        public static bool isPresenting
+        {
+            get
+            {
 #if UNITY_IOS && !UNITY_EDITOR
                 return KRTInAppMessaging_presenting ();
 #elif UNITY_ANDROID && !UNITY_EDITOR
@@ -140,7 +165,8 @@ namespace Io.Karte {
         /// <summary>
         /// アプリ内メッセージの表示を抑制します。
         /// </summary>
-        public static void suppress () {
+        public static void suppress()
+        {
 #if UNITY_IOS && !UNITY_EDITOR
             KRTInAppMessaging_suppress ();
 #elif UNITY_ANDROID && !UNITY_EDITOR
@@ -151,7 +177,8 @@ namespace Io.Karte {
         /// <summary>
         ///アプリ内メッセージの表示抑制を解除します。
         /// </summary>
-        public static void unsuppress () {
+        public static void unsuppress()
+        {
 #if UNITY_IOS && !UNITY_EDITOR
             KRTInAppMessaging_unsuppress ();
 #elif UNITY_ANDROID && !UNITY_EDITOR

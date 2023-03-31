@@ -3,19 +3,21 @@ using System.Runtime.InteropServices;
 #endif
 using System;
 using System.Runtime.CompilerServices;
+using UnityEngine;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Serialization;
-using UnityEngine;
 
-[assembly : InternalsVisibleTo ("EditModeTest")]
-namespace Io.Karte {
+[assembly: InternalsVisibleTo("EditModeTest")]
+namespace Io.Karte
+{
     /// <summary>
     /// <para>Variableクラスは、設定値配信に関連する機能で、設定値と配信元の接客サービスの情報を保持する機能を提供します。</para>
     /// <para>Variablesクラスを経由して初期化されるため、個別で初期化して使用することはありません。</para>
     /// </summary>
     [Serializable]
-    public class Variable {
+    public class Variable
+    {
 
 #if UNITY_IOS && !UNITY_EDITOR
         [DllImport ("__Internal")]
@@ -38,7 +40,8 @@ namespace Io.Karte {
         [JsonProperty]
         internal string name;
 
-        internal Variable (string name) {
+        internal Variable(string name)
+        {
             this.name = name;
         }
 
@@ -50,7 +53,8 @@ namespace Io.Karte {
         /// <para>設定値を文字列値として返します。</para>
         /// <para>接客サービス側で設定値が未設定の場合は、引数として指定したデフォルト値を返します。</para>
         /// </returns>
-        public string GetString (string defaultValue) {
+        public string GetString(string defaultValue)
+        {
 #if UNITY_IOS && !UNITY_EDITOR
             return KRTVariables_string(name);
 #elif UNITY_ANDROID && !UNITY_EDITOR
@@ -76,7 +80,8 @@ namespace Io.Karte {
         /// </list>
         /// </para>
         /// </returns>
-        public int GetInt (int defaultValue) {
+        public int GetInt(int defaultValue)
+        {
 #if UNITY_IOS && !UNITY_EDITOR
             return KRTVariables_integer(name, defaultValue);
 #elif UNITY_ANDROID && !UNITY_EDITOR
@@ -100,7 +105,8 @@ namespace Io.Karte {
         /// </list>
         /// </para>
         /// </returns>
-        public double GetDouble (double defaultValue) {
+        public double GetDouble(double defaultValue)
+        {
 #if UNITY_IOS && !UNITY_EDITOR
             return KRTVariables_double(name, defaultValue);
 #elif UNITY_ANDROID && !UNITY_EDITOR
@@ -123,13 +129,14 @@ namespace Io.Karte {
         /// </list>
         /// </para>
         /// </returns>
-        public bool GetBool (bool defaultValue) {
+        public bool GetBool(bool defaultValue)
+        {
 #if UNITY_IOS && !UNITY_EDITOR
             return KRTVariables_bool(name, defaultValue);
 #elif UNITY_ANDROID && !UNITY_EDITOR
 #else
-            AndroidJavaClass variables = new AndroidJavaClass ("io.karte.unity.UnityVariables");
-            return variables.CallStatic<bool> ("getBoolean", new object[] { name, defaultValue });
+            AndroidJavaClass variables = new AndroidJavaClass("io.karte.unity.UnityVariables");
+            return variables.CallStatic<bool>("getBoolean", new object[] { name, defaultValue });
 #endif
             return defaultValue;
         }
@@ -148,7 +155,8 @@ namespace Io.Karte {
         /// </list>
         /// </para>
         /// </returns>
-        public object[] GetJsonArray (object[] defaultValue) {
+        public object[] GetJsonArray(object[] defaultValue)
+        {
             string serializedValue = null;
 #if UNITY_IOS && !UNITY_EDITOR
             serializedValue = KRTVariables_array(name);
@@ -157,12 +165,18 @@ namespace Io.Karte {
             serializedValue = variables.CallStatic<string> ("getArray", new object[] { name });
 #else
 #endif
-            if (serializedValue == null) {
+            if (serializedValue == null)
+            {
                 return defaultValue;
-            } else {
-                try {
-                    return JsonConvert.DeserializeObject<object[]> (serializedValue);
-                } catch (JsonException) {
+            }
+            else
+            {
+                try
+                {
+                    return JsonConvert.DeserializeObject<object[]>(serializedValue);
+                }
+                catch (JsonException)
+                {
                     return defaultValue;
                 }
             }
@@ -182,7 +196,8 @@ namespace Io.Karte {
         /// </list>
         /// </para>
         /// </returns>
-        public JObject GetJsonObject (JObject defaultValue) {
+        public JObject GetJsonObject(JObject defaultValue)
+        {
             string serializedValue = null;
 #if UNITY_IOS && !UNITY_EDITOR
             serializedValue = KRTVariables_object(name);
@@ -191,13 +206,19 @@ namespace Io.Karte {
             serializedValue = variables.CallStatic<string> ("getObject", new object[] { name });
 #else
 #endif
-            if (serializedValue == null) {
+            if (serializedValue == null)
+            {
                 return defaultValue;
-            } else {
-                try {
-                    return JObject.Parse (serializedValue);
+            }
+            else
+            {
+                try
+                {
+                    return JObject.Parse(serializedValue);
 
-                } catch (JsonException) {
+                }
+                catch (JsonException)
+                {
                     return defaultValue;
                 }
             }
