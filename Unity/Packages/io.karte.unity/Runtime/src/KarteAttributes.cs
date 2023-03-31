@@ -1,10 +1,13 @@
-namespace Io.Karte {
+namespace Io.Karte
+{
 
     /// <summary>
     /// KarteAttributesクラスは、 KARTEが自動で処理するプッシュ通知のデータを取り扱うクラスです。
     /// </summary>
-    public class KarteAttributes {
-        internal KarteAttributes (string title, string body, bool sound, string channel, string link, string type, string fileUrl) {
+    public class KarteAttributes
+    {
+        internal KarteAttributes(string title, string body, bool sound, string channel, string link, string type, string fileUrl)
+        {
             this.title = title;
             this.body = body;
             this.sound = sound;
@@ -27,7 +30,8 @@ namespace Io.Karte {
         /// <returns>
         /// プッシュ通知の本文を返します。
         /// </returns>
-        public string Body {
+        public string Body
+        {
             get { return body; }
         }
 
@@ -37,7 +41,8 @@ namespace Io.Karte {
         /// <returns>
         /// プッシュ通知の画像URLを返します。
         /// </returns>
-        public string BigImageUrl {
+        public string BigImageUrl
+        {
             get { return fileUrl; }
         }
 
@@ -47,7 +52,8 @@ namespace Io.Karte {
         /// <returns>
         /// プッシュ通知のクリックリンクを返します。
         /// </returns>
-        public string Link {
+        public string Link
+        {
             get { return link; }
         }
 
@@ -57,7 +63,8 @@ namespace Io.Karte {
         /// <returns>
         /// プッシュ通知のチャンネルIDを返します。
         /// </returns>
-        public string Channel {
+        public string Channel
+        {
             get { return channel; }
         }
 
@@ -67,7 +74,8 @@ namespace Io.Karte {
         /// <returns>
         /// プッシュ通知の通知音可否を返します。
         /// </returns>
-        public bool Sound {
+        public bool Sound
+        {
             get { return sound; }
         }
 
@@ -77,7 +85,8 @@ namespace Io.Karte {
         /// <value>
         /// プッシュ通知のタイトルを返します。
         /// </value>
-        public string Title {
+        public string Title
+        {
             get { return title; }
         }
     }

@@ -1,13 +1,15 @@
 #if UNITY_IOS && !UNITY_EDITOR
 using System.Runtime.InteropServices;
 #endif
-using Newtonsoft.Json.Linq;
+using System;
 using UnityEngine;
 
-namespace Io.Karte { /// <summary>
-    /// <para>SDK全体に影響のある機能を扱うクラスです。</para>
-    /// </summary>
-    public class App {
+namespace Io.Karte
+{ /// <summary>
+  /// <para>SDK全体に影響のある機能を扱うクラスです。</para>
+  /// </summary>
+    public class App
+    {
 #if UNITY_IOS && !UNITY_EDITOR
         [DllImport ("__Internal")]
         static extern string KRTApp_getVisitorId ();
@@ -31,7 +33,8 @@ namespace Io.Karte { /// <summary>
         /// ビジターIDを返します。
         /// </summary>
         /// <returns>ビジターIDを返します。</returns>
-        public static string GetVisitorId () {
+        public static string GetVisitorId()
+        {
             string visitorId = "";
 #if UNITY_IOS && !UNITY_EDITOR
             visitorId = KRTApp_getVisitorId ();
@@ -47,7 +50,8 @@ namespace Io.Karte { /// <summary>
         /// <para>なお登録時に plugin_native_app_identify イベントを発行します。</para>
         /// </summary>
         /// <param name="token">FCMトークン </param>
-        public static void RegisterFCMToken (string token) {
+        public static void RegisterFCMToken(string token)
+        {
 #if UNITY_IOS && !UNITY_EDITOR
             KRTApp_registerFCMToken (token);
 #elif UNITY_ANDROID && !UNITY_EDITOR
@@ -56,7 +60,7 @@ namespace Io.Karte { /// <summary>
 #endif
         }
 
-    /// <summary>
+        /// <summary>
         /// <para>ビジターIDの再生成処理を行います。</para>
         /// <para>なお内部では、以下の処理が行われます。
         /// <list type="bullet">
@@ -67,7 +71,8 @@ namespace Io.Karte { /// <summary>
         /// </list>
         /// </para>
         /// </summary>
-        public static void RenewVisitorId () {
+        public static void RenewVisitorId()
+        {
 #if UNITY_IOS && !UNITY_EDITOR
             KRTApp_renewVisitorId ();
 #elif UNITY_ANDROID && !UNITY_EDITOR
@@ -81,7 +86,8 @@ namespace Io.Karte { /// <summary>
         /// <para>オプトアウト実行後、計測をはじめとしたSDKの内部処理は全て無効化されます。</para>
         /// <para>optInを実行することでオプトアウト状態を解除できます。</para>
         /// </summary>
-        public static void OptOut () {
+        public static void OptOut()
+        {
 #if UNITY_IOS && !UNITY_EDITOR
             KRTApp_optOut ();
 #elif UNITY_ANDROID && !UNITY_EDITOR
@@ -93,7 +99,8 @@ namespace Io.Karte { /// <summary>
         /// <summary>
         /// オプトアウト状態を解除します。
         /// </summary>
-        public static void OptIn () {
+        public static void OptIn()
+        {
 #if UNITY_IOS && !UNITY_EDITOR
             KRTApp_optIn ();
 #elif UNITY_ANDROID && !UNITY_EDITOR
@@ -102,10 +109,11 @@ namespace Io.Karte { /// <summary>
 #endif
         }
 
-       /// <summary>
+        /// <summary>
         /// KarteでURLを処理します。
         /// </summary>
-        public static bool OpenUrl (string url) {
+        public static bool OpenUrl(string url)
+        {
 #if UNITY_IOS && !UNITY_EDITOR
             return KRTAPP_openURL (url);
 #elif UNITY_ANDROID && !UNITY_EDITOR

@@ -1,15 +1,18 @@
 #if UNITY_IOS && !UNITY_EDITOR
 using System.Runtime.InteropServices;
 #endif
-using Newtonsoft.Json.Linq;
+using System;
 using UnityEngine;
+using Newtonsoft.Json.Linq;
 
-namespace Io.Karte {
+namespace Io.Karte
+{
     /// <summary>
     /// <para>Trackerクラスは、主にイベントのトラッキング機能を提供します。</para>
     /// <para>KARTEにイベントを送信する場合、本クラスが提供する各種トラッキングメソッドを利用して行います。</para>
     /// </summary>
-    public class Tracker {
+    public class Tracker
+    {
 #if UNITY_IOS && !UNITY_EDITOR
         [DllImport ("__Internal")]
         static extern void KRTTracker_view (string viewName);
@@ -35,7 +38,8 @@ namespace Io.Karte {
         /// Viewイベントを送信します。
         /// </summary>
         /// <param name="viewName">画面名 </param>
-        public static void View (string viewName) {
+        public static void View(string viewName)
+        {
 #if UNITY_IOS && !UNITY_EDITOR
             KRTTracker_view (viewName);
 #elif UNITY_ANDROID && !UNITY_EDITOR
@@ -49,7 +53,8 @@ namespace Io.Karte {
         /// </summary>
         /// <param name="viewName">画面名 </param>
         /// <param name="title">画面タイトル</param>
-        public static void View (string viewName, string title) {
+        public static void View(string viewName, string title)
+        {
 #if UNITY_IOS && !UNITY_EDITOR
             KRTTracker_viewWithTitle (viewName, title);
 #elif UNITY_ANDROID && !UNITY_EDITOR
@@ -64,8 +69,9 @@ namespace Io.Karte {
         /// <param name="viewName">画面名 </param>
         /// <param name="title">画面タイトル</param>
         /// <param name="values">イベントに紐付けるカスタムオブジェクト</param>
-        public static void View (string viewName, string title, JObject values) {
-            string serializedValues = values.ToString ();
+        public static void View(string viewName, string title, JObject values)
+        {
+            string serializedValues = TrackerHelper.Normalize(values).ToString();
 #if UNITY_IOS && !UNITY_EDITOR
             KRTTracker_viewWithTitleAndValues (viewName, title, serializedValues);
 #elif UNITY_ANDROID && !UNITY_EDITOR
@@ -78,7 +84,8 @@ namespace Io.Karte {
         /// イベントを送信します。
         /// </summary>
         /// <param name="eventName">イベント名</param>
-        public static void Track (string eventName) {
+        public static void Track(string eventName)
+        {
 #if UNITY_IOS && !UNITY_EDITOR
             KRTTracker_track (eventName);
 #elif UNITY_ANDROID && !UNITY_EDITOR
@@ -92,8 +99,9 @@ namespace Io.Karte {
         /// </summary>
         /// <param name="eventName">イベント名</param>
         /// <param name="values">イベントに紐付けるカスタムオブジェクト</param>
-        public static void Track (string eventName, JObject values) {
-            string serializedValues = values.ToString ();
+        public static void Track(string eventName, JObject values)
+        {
+            string serializedValues = TrackerHelper.Normalize(values).ToString();
 #if UNITY_IOS && !UNITY_EDITOR
             KRTTracker_trackWithValues (eventName, serializedValues);
 #elif UNITY_ANDROID && !UNITY_EDITOR
@@ -107,8 +115,9 @@ namespace Io.Karte {
         /// <para>KARTEではユーザー情報もユーザー情報イベントとして、他のイベントと同じ形式で扱います。</para>
         /// </summary>
         /// <param name="values">ユーザーに紐付けるカスタムオブジェクト</param>
-        public static void Identify (JObject values) {
-            string serializedValues = values.ToString ();
+        public static void Identify(JObject values)
+        {
+            string serializedValues = TrackerHelper.Normalize(values).ToString();
 #if UNITY_IOS && !UNITY_EDITOR
             KRTTracker_identify (serializedValues);
 #elif UNITY_ANDROID && !UNITY_EDITOR
@@ -123,8 +132,9 @@ namespace Io.Karte {
         /// </summary>
         /// <param name="userId">ユーザーを識別する一意なID</param>
         /// <param name="values">ユーザーに紐付けるカスタムオブジェクト</param>
-        public static void Identify (string userId, JObject values) {
-            string serializedValues = values.ToString ();
+        public static void Identify(string userId, JObject values)
+        {
+            string serializedValues = TrackerHelper.Normalize(values).ToString();
 #if UNITY_IOS && !UNITY_EDITOR
             KRTTracker_identifyWithUserId (userId, serializedValues);
 #elif UNITY_ANDROID && !UNITY_EDITOR
@@ -137,8 +147,9 @@ namespace Io.Karte {
         /// <para>Attributeイベント（ユーザー情報）を送信します。</para>
         /// </summary>
         /// <param name="values">ユーザーに紐付けるカスタムオブジェクト</param>
-        public static void Attribute (JObject values) {
-            string serializedValues = values.ToString ();
+        public static void Attribute(JObject values)
+        {
+            string serializedValues = TrackerHelper.Normalize(values).ToString();
 #if UNITY_IOS && !UNITY_EDITOR
             KRTTracker_attribute (serializedValues);
 #elif UNITY_ANDROID && !UNITY_EDITOR

@@ -2,14 +2,13 @@
 using System.Runtime.InteropServices;
 #endif
 using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Linq;
+using UnityEngine;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using UnityEngine;
-using System.Linq;
 
-namespace Io.Karte {
+namespace Io.Karte
+{
     /// <summary>
     /// <para>Variablesクラスは、設定値配信に関連するクラスで、以下の機能を提供します。
     /// <list type="bullet">
@@ -21,7 +20,8 @@ namespace Io.Karte {
     /// <para>なおVariablesクラスを利用するためには、事前にSDKの初期化が必要です。</para>
     /// <para>初期化が行われていない場合、例外が発生する可能性があります。</para>
     /// </summary>
-    public class Variables {
+    public class Variables
+    {
 #if UNITY_IOS && !UNITY_EDITOR
         [DllImport ("__Internal")]
         static extern void KRTVariables_fetch ();
@@ -50,7 +50,8 @@ namespace Io.Karte {
         /// <para>※事前にトラッカーの初期化が必要です。</para>
         /// <para>初期化時に指定したアプリケーションキーに対応するSDKの初期化が行われていない場合は、例外が発生します。</para>
         /// </summary>
-        public static void Fetch () {
+        public static void Fetch()
+        {
 #if UNITY_IOS && !UNITY_EDITOR
             KRTVariables_fetch ();
 #elif UNITY_ANDROID && !UNITY_EDITOR
@@ -70,9 +71,10 @@ namespace Io.Karte {
         /// </example>
         /// </summary>
         /// <param name="callback">取得完了通知クロージャ</param>
-        public static void FetchWithCompletion (Action<bool> callback) {
-            string callbackId = CallbackReceiver.GenerateUniqueCallbackID ();
-            CallbackReceiver.Instance.AddVariablesCallback (callbackId, callback);
+        public static void FetchWithCompletion(Action<bool> callback)
+        {
+            string callbackId = CallbackReceiver.GenerateUniqueCallbackID();
+            CallbackReceiver.Instance.AddVariablesCallback(callbackId, callback);
 #if UNITY_IOS && !UNITY_EDITOR
             KRTVariables_fetchWithCompletionBlock (CallbackReceiver.CallbackTargetName, callbackId);
 #elif UNITY_ANDROID && !UNITY_EDITOR
@@ -88,17 +90,19 @@ namespace Io.Karte {
         /// </summary>
         /// <param name="key">設定値キー</param>
         /// <returns>Variableオブジェクトを返します。</returns>
-        public static Variable GetVariable (string key) {
+        public static Variable GetVariable(string key)
+        {
             return new Variable(key);
         }
 
-       /// <summary>
+        /// <summary>
         /// 指定された設定値に関連するキャンペーン情報を元に効果測定用のイベント（message_open）を発火します。
         /// </summary>
         /// <param name="vars">設定値の配列</param>
-        public static void TrackOpen (Variable[] vars) {
+        public static void TrackOpen(Variable[] vars)
+        {
             string[] variableNames = vars.Select(v => v.name).ToArray();
-            string serialzedNames = JsonConvert.SerializeObject (variableNames);
+            string serialzedNames = JsonConvert.SerializeObject(variableNames);
 
 #if UNITY_IOS && !UNITY_EDITOR
             KRTVariables_trackOpen (serialzedNames);
@@ -113,10 +117,11 @@ namespace Io.Karte {
         /// </summary>
         /// <param name="vars">設定値の配列</param>
         /// <param name="values">イベントに紐付けるカスタムオブジェクト</param>
-        public static void TrackOpen (Variable[] vars, JObject values) {
+        public static void TrackOpen(Variable[] vars, JObject values)
+        {
             string[] variableNames = vars.Select(v => v.name).ToArray();
-            string serialzedNames = JsonConvert.SerializeObject (variableNames);
-            string serializedValues = JsonConvert.SerializeObject (values);
+            string serialzedNames = JsonConvert.SerializeObject(variableNames);
+            string serializedValues = JsonConvert.SerializeObject(TrackerHelper.Normalize(values));
 #if UNITY_IOS && !UNITY_EDITOR
             KRTVariables_trackOpenWithValues (serialzedNames, serializedValues);
 #elif UNITY_ANDROID && !UNITY_EDITOR
@@ -129,9 +134,10 @@ namespace Io.Karte {
         /// 指定された設定値に関連するキャンペーン情報を元に効果測定用のイベント（message_click）を発火します。
         /// </summary>
         /// <param name="vars">設定値の配列</param>
-        public static void TrackClick (Variable[] vars) {
+        public static void TrackClick(Variable[] vars)
+        {
             string[] variableNames = vars.Select(v => v.name).ToArray();
-            string serialzedNames = JsonConvert.SerializeObject (variableNames);
+            string serialzedNames = JsonConvert.SerializeObject(variableNames);
 #if UNITY_IOS && !UNITY_EDITOR
             KRTVariables_trackClick (serialzedNames);
 #elif UNITY_ANDROID && !UNITY_EDITOR
@@ -145,10 +151,11 @@ namespace Io.Karte {
         /// </summary>
         /// <param name="vars">設定値の配列</param>
         /// <param name="values">イベントに紐付けるカスタムオブジェクト</param>
-        public static void TrackClick (Variable[] vars, JObject values) {
+        public static void TrackClick(Variable[] vars, JObject values)
+        {
             string[] variableNames = vars.Select(v => v.name).ToArray();
-            string serialzedNames = JsonConvert.SerializeObject (variableNames);
-            string serializedValues = JsonConvert.SerializeObject (values);
+            string serialzedNames = JsonConvert.SerializeObject(variableNames);
+            string serializedValues = JsonConvert.SerializeObject(TrackerHelper.Normalize(values));
 #if UNITY_IOS && !UNITY_EDITOR
             KRTVariables_trackClickWithValues (serialzedNames, serializedValues);
 #elif UNITY_ANDROID && !UNITY_EDITOR
@@ -163,13 +170,15 @@ namespace Io.Karte {
         /// <para>この機能はiOSのみで提供されています。</para>
         /// <para>Androidでは常にnullを返します。</para>
         /// </summary>
-        public static DateTime? LastFetchTime () {
+        public static DateTime? LastFetchTime()
+        {
             int lastFetchTime = 0;
 #if UNITY_IOS && !UNITY_EDITOR
             lastFetchTime = KRTVariables_lastFetchTime ();
 #elif UNITY_ANDROID && !UNITY_EDITOR
 #endif
-            if (lastFetchTime == 0) {
+            if (lastFetchTime == 0)
+            {
                 return null;
             }
 
@@ -183,13 +192,14 @@ namespace Io.Karte {
         /// <para>この機能はiOSのみで提供されています。</para>
         /// <para>Androidでは常に0を返します。</para>
         /// </summary>
-        public static int LastFetchStatus () {
+        public static int LastFetchStatus()
+        {
             int lastFetchStatus = 0;
 #if UNITY_IOS && !UNITY_EDITOR
             lastFetchStatus = KRTVariables_lastFetchStatus ();
 #elif UNITY_ANDROID && !UNITY_EDITOR
 #endif
-             return lastFetchStatus;
+            return lastFetchStatus;
         }
 
         /// <summary>
@@ -197,13 +207,14 @@ namespace Io.Karte {
         /// <para>この機能はiOSのみで提供されています。</para>
         /// <para>Androidでは常にfalseを返します。</para>
         /// </summary>
-        public static bool HasSuccessfulLastFetchIn (int seconds) {
+        public static bool HasSuccessfulLastFetchIn(int seconds)
+        {
             bool hasSuccessfulLastFetchIn = false;
 #if UNITY_IOS && !UNITY_EDITOR
             hasSuccessfulLastFetchIn = KRTVariables_hasSuccessfulLastFetch (seconds);
 #elif UNITY_ANDROID && !UNITY_EDITOR
 #endif
-             return hasSuccessfulLastFetchIn;
+            return hasSuccessfulLastFetchIn;
         }
     }
 }
